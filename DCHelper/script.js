@@ -72,7 +72,6 @@ function fromExtension(e){
     }
 }
 
-
 function removeBlockedContent(blockers){
     var blocked = blockers.split('|');
     
@@ -81,29 +80,19 @@ function removeBlockedContent(blockers){
         [].forEach.call(document.getElementsByClassName("gallery_re_btn"), function(el){
             el.style.display = "none";
         });
-               
+       
         var injectScript = document.createElement("script");
-        injectScript.text = "var htmlData='';$(document).ready(function(){ var pageCount=Math.ceil(parseInt($('#comment_num').val())/40); for(var i=pageCount; i>0; i--){ getCommentList(i); }});function getCommentList(page){ var _comment_num=parseInt($('#comment_num').val()), gall_id=$.getURLParam('id'), vr_no=$.getURLParam('vr'), gall_no=$.getURLParam('no'), csrf_token=get_cookie('ci_c'); $.post('/comment/view', { ci_t:csrf_token, id: gall_id, no:gall_no, comment_page:page, vr: vr_no}, function(data){ htmlData += data; if(page == 1){ $('#comment_list').html(htmlData); clipinit(); $('#pager').hide(); }})}";
+        injectScript.text = "$(document).ready(function(){ Pager = { pageIndexChanged: function(selectedPage){ getCommentList(++_currentPage); } } }); function getCommentList(page){ var _comment_num=_totalItemCount, gall_id=$.getURLParam('id'), vr_no=$.getURLParam('vr'), gall_no=$.getURLParam('no'), csrf_token=get_cookie('ci_c'); $.ajax({url: '/comment/view', method:'POST', data: { ci_t:csrf_token, id: gall_id, no:gall_no, comment_page:page, vr: vr_no}, success: function(data){ $('#comment_list').html(data); clipinit(); var blocklist='"+blockers+"'.split('|'); $('#comment_list').find('.user_layer').each(function(){ if(blocklist.includes($(this).attr('user_name'))){ $(this).parent().hide(); } }) } }) }";
         document.body.appendChild(injectScript);
-        
-        setTimeout(function(){
-                   [].forEach.call(document.getElementsByClassName("user_layer"), function(el){
-                       var nickName = el.getAttribute("user_name");
-                       
-                       if(blocked.includes(nickName)){
-                       el.parentElement.style.display = "none";
-                       }
-                    });
-        }, 1000);
-    }else{
-        [].forEach.call(document.getElementsByClassName("user_layer"), function(el){
-            var nickName = el.getAttribute("user_name");
-                        
-            if(blocked.includes(nickName)){
-                el.parentElement.style.display = "none";
-            }
-        });
     }
+    
+    [].forEach.call(document.getElementsByClassName("user_layer"), function(el){
+        var nickName = el.getAttribute("user_name");
+                    
+        if(blocked.includes(nickName)){
+            el.parentElement.style.display = "none";
+        }
+    });
 }
 
 var autoImageProc = function(data){
