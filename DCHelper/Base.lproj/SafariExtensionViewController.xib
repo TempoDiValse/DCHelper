@@ -52,7 +52,7 @@
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tgk-UV-L1C">
                     <rect key="frame" x="182" y="169" width="63" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="목록" bezelStyle="rounded" image="10E0F2BC-5FF3-4841-9F7D-121B81FFC01D" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uTK-nx-xlt">
+                    <buttonCell key="cell" type="push" title="목록" bezelStyle="rounded" image="FF1D5231-7665-4DC0-9D8B-703AD3C2C73D" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uTK-nx-xlt">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" size="12" name=".AppleSDGothicNeoI-Thin"/>
                     </buttonCell>
@@ -94,13 +94,13 @@
                     </textFieldCell>
                 </textField>
                 <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="bVW-ZF-gfz">
-                    <rect key="frame" x="0.0" y="-8" width="250" height="120"/>
+                    <rect key="frame" x="0.0" y="-20" width="250" height="144"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </box>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tPU-H7-hYm">
-                    <rect key="frame" x="18" y="142" width="67" height="21"/>
+                    <rect key="frame" x="11" y="142" width="74" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="자짤설정" id="KYq-T8-mY3">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="자동이미지" id="KYq-T8-mY3">
                         <font key="font" size="16" name=".AppleSDGothicNeoI-Thin"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -118,7 +118,7 @@
                     </connections>
                 </button>
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v0L-7u-2jI">
-                    <rect key="frame" x="28" y="76" width="195" height="34"/>
+                    <rect key="frame" x="28" y="80" width="195" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="설정을 완료 하신 후 Cmd+R을 해주시기 바랍니다." id="9kD-u0-B0x">
                         <font key="font" size="13" name=".AppleSDGothicNeoI-Thin"/>
@@ -144,7 +144,7 @@ APoBBgEYARsBIAAAAAAAAAIBAAAAAAAAACgAAAAAAAAAAAAAAAAAAAEiA
         </customView>
     </objects>
     <resources>
-        <image name="10E0F2BC-5FF3-4841-9F7D-121B81FFC01D" width="1" height="1">
+        <image name="FF1D5231-7665-4DC0-9D8B-703AD3C2C73D" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

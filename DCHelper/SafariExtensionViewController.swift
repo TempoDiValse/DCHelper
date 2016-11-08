@@ -8,7 +8,7 @@
 
 import SafariServices
 
-class SafariExtensionViewController: SFSafariExtensionViewController {
+class SafariExtensionViewController: SFSafariExtensionViewController, NSMenuDelegate{
     
     static let shared = SafariExtensionViewController()
     let defaults = UserDefaults.standard

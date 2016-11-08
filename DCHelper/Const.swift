@@ -10,7 +10,6 @@ import Foundation
 
 struct Const {
     static let USER_IMAGE_WIDTH = "u_img_w"
-    static let USER_IMAGE_HEIGHT = "u_img_h"
     static let USER_IMG_SRC = "u_img_src"
     static let USER_IMG_DATA = "u_img_data"
     static let USER_BLOCK_ARRAY = "u_block_array"

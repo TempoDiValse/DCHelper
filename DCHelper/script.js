@@ -22,7 +22,7 @@ safari.self.addEventListener("message", fromExtension);
 
 document.addEventListener("DOMContentLoaded", function(event) {
       var url = document.location.href;
-    
+      
       if(url.startsWith(PREFIX)) {
           var dcurl = url.substring(PREFIX.length);
               
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
               currentPage = Page.View;
           }else{
               currentPage = "";
-          }
+          }	
                           
           if(currentPage != ""){
               safari.extension.dispatchMessage(currentPage);
@@ -53,7 +53,7 @@ function fromExtension(e){
     
     if(received.type == MessageType.AutoImage){
         var args = received.args;
-        
+    
         var _gID = document.getElementById("id").value;
         var _rKey = document.getElementById("r_key").value;
         var data = args.data;
@@ -63,11 +63,11 @@ function fromExtension(e){
         fObj.append("r_key",_rKey);
         fObj.append("files[]", b64toBlob(data), fileName);
         
-        setTimeout(function(){
-            request(URL_UPLOAD_IMG+id, fObj, autoImageProc);
-        },500);
+        request(URL_UPLOAD_IMG+id, fObj, autoImageProc);
+    
     }else if(received.type == MessageType.Block){
         var blockers = received.args;
+        
         removeBlockedContent(blockers);
     }
 }
@@ -82,7 +82,7 @@ function removeBlockedContent(blockers){
         });
        
         var injectScript = document.createElement("script");
-        injectScript.text = "$(document).ready(function(){ Pager = { pageIndexChanged: function(selectedPage){ getCommentList(++_currentPage); } } }); function getCommentList(page){ var _comment_num=_totalItemCount, gall_id=$.getURLParam('id'), vr_no=$.getURLParam('vr'), gall_no=$.getURLParam('no'), csrf_token=get_cookie('ci_c'); $.ajax({url: '/comment/view', method:'POST', data: { ci_t:csrf_token, id: gall_id, no:gall_no, comment_page:page, vr: vr_no}, success: function(data){ $('#comment_list').html(data); clipinit(); var blocklist='"+blockers+"'.split('|'); $('#comment_list').find('.user_layer').each(function(){ if(blocklist.includes($(this).attr('user_name'))){ $(this).parent().hide(); } }) } }) }";
+        injectScript.text = "$(document).ready(function(){ setTimeout(function(){ getCommentList(0); },1000); Pager = { pageIndexChanged: function(selectedPage){ getCommentList(++_currentPage); } } }); function getCommentList(page){ var _comment_num=_totalItemCount, gall_id=$.getURLParam('id'), vr_no=$.getURLParam('vr'), gall_no=$.getURLParam('no'), csrf_token=get_cookie('ci_c'); $.ajax({url: '/comment/view', method:'POST', data: { ci_t:csrf_token, id: gall_id, no:gall_no, comment_page:page, vr: vr_no}, success: function(data){ $('#comment_list').html(data); clipinit(); var blocklist='"+blockers+"'.split('|'); $('#comment_list').find('.user_layer').each(function(){ if(blocklist.includes($(this).attr('user_name'))){ $(this).parent().hide(); } }) } }) }";
         document.body.appendChild(injectScript);
     }
     
@@ -99,12 +99,12 @@ var autoImageProc = function(data){
     var root = data.files[0];
     
     var uploadedInfo = {
-        'imageurl': (root.width >= 850) ? root.web__url : root.url,
+        'imageurl': root.url,
         'filename': root.name,
         'filesize': root.size,
         'imagealign': 'L',
         'originalurl': root.url,
-        'thumburl': root.s_url,
+        'thumburl': root.url,
         'file_temp_no':root.file_temp_no
     }
     
@@ -114,8 +114,7 @@ var autoImageProc = function(data){
     
     var iframeBody = document.getElementById("tx_canvas_wysiwyg").contentDocument.getElementsByTagName("body")[0];
     var autoImageObj = iframeBody.getElementsByClassName("txc-image")[0];
-    autoImageObj.setAttribute("width", received.args.width);
-    autoImageObj.setAttribute("height", received.args.height);
+    autoImageObj.style.maxWidth = received.args.width+"px";
     
     document.getElementById("upload_status").value = 'Y';
 }

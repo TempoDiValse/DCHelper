@@ -31,15 +31,13 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                     let data = try Data.init(contentsOf: URL(string:url!)!).base64EncodedString()
                     
                     let width = defaults.string(forKey: Const.USER_IMAGE_WIDTH)
-                    let height = defaults.string(forKey: Const.USER_IMAGE_HEIGHT)
                     
                     page.dispatchMessageToScript(withName: "fromExtension", userInfo: [
                         "type": Const.MessageType.AutoImage,
                         "args": [
                             "fileName": fileName,
                             "data": data,
-                            "width": width,
-                            "height": height
+                            "width": width
                         ]
                     ])
                 }catch{

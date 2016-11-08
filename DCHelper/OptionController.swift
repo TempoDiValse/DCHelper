@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class OptionController: NSViewController, NSWindowDelegate {
+class OptionController: NSViewController {
     
     @IBOutlet var btnOpen: NSButton!
     @IBOutlet var btnSubmit: NSButton!
@@ -17,13 +17,11 @@ class OptionController: NSViewController, NSWindowDelegate {
     
     @IBOutlet var editURL: NSTextField!
     @IBOutlet var editWidth: NSTextField!
-    @IBOutlet var editHeight: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "자동 이미지"
-        
         let defaults = UserDefaults.standard
         
         editURL.isEditable = false
@@ -34,7 +32,6 @@ class OptionController: NSViewController, NSWindowDelegate {
             imgPreview.image = getImage(filePath: URL(string:src)!)
 
             editWidth.stringValue = defaults.string(forKey: Const.USER_IMAGE_WIDTH)!
-            editHeight.stringValue = defaults.string(forKey: Const.USER_IMAGE_HEIGHT)!
         }
     }
     
@@ -63,8 +60,7 @@ class OptionController: NSViewController, NSWindowDelegate {
             return nil
         }
         
-        editWidth.stringValue = String(Int(image!.size.width))
-        editHeight.stringValue = String(Int(image!.size.height))
+        editWidth.stringValue = image!.size.width <= 850 ? String(Int(image!.size.width)) : "850"
         
         return image
     }
@@ -73,15 +69,14 @@ class OptionController: NSViewController, NSWindowDelegate {
         let defaults = UserDefaults.standard
         
         defaults.set(editWidth.stringValue, forKey: Const.USER_IMAGE_WIDTH)
-        defaults.set(editHeight.stringValue, forKey: Const.USER_IMAGE_HEIGHT)
         defaults.set(editURL.stringValue, forKey: Const.USER_IMG_SRC)
         
         defaults.synchronize()
         
-        self.view.window?.close()
+        dismissViewController(self)
     }
     
     @IBAction func windowCancel(_ sender: Any) {
-        self.view.window?.close()
+        dismissViewController(self)
     }
 }

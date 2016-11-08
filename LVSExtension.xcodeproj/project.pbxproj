@@ -132,12 +132,7 @@
 			children = (
 				CA3ABE4E1DCAB94E001122B3 /* Const.swift */,
 				CA10F8821DC8606B0038CA26 /* SafariExtensionHandler.swift */,
-				CA10F8841DC8606B0038CA26 /* SafariExtensionViewController.swift */,
-				CA10F8861DC8606B0038CA26 /* SafariExtensionViewController.xib */,
-				CA10F89B1DC9793C0038CA26 /* OptionController.swift */,
-				CA10F89C1DC9793C0038CA26 /* OptionController.xib */,
-				CA3812791DCB196800D223A7 /* BlockController.swift */,
-				CA38127A1DCB196800D223A7 /* BlockController.xib */,
+				CAE16DF51DD058830050B101 /* Controllers */,
 				CA10F8891DC8606B0038CA26 /* Info.plist */,
 				CA10F88A1DC8606B0038CA26 /* script.js */,
 				CA10F88C1DC8606B0038CA26 /* ToolbarItemIcon.pdf */,
@@ -152,6 +147,19 @@
 				CA10F8811DC8606B0038CA26 /* DCHelper.entitlements */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CAE16DF51DD058830050B101 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CA10F8841DC8606B0038CA26 /* SafariExtensionViewController.swift */,
+				CA10F8861DC8606B0038CA26 /* SafariExtensionViewController.xib */,
+				CA10F89B1DC9793C0038CA26 /* OptionController.swift */,
+				CA10F89C1DC9793C0038CA26 /* OptionController.xib */,
+				CA3812791DCB196800D223A7 /* BlockController.swift */,
+				CA38127A1DCB196800D223A7 /* BlockController.xib */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,10 +213,12 @@
 				TargetAttributes = {
 					CA10F8661DC860560038CA26 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 32QE36VTWH;
 						ProvisioningStyle = Automatic;
 					};
 					CA10F87A1DC8606B0038CA26 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 32QE36VTWH;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -402,7 +412,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 32QE36VTWH;
 				INFOPLIST_FILE = LVSExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.lavalse.LVSExtension;
@@ -416,7 +428,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 32QE36VTWH;
 				INFOPLIST_FILE = LVSExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.lavalse.LVSExtension;
@@ -429,6 +443,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = DCHelper/DCHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 32QE36VTWH;
 				INFOPLIST_FILE = DCHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.lavalse.LVSExtension.DCHelper;
@@ -442,6 +458,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = DCHelper/DCHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 32QE36VTWH;
 				INFOPLIST_FILE = DCHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kr.lavalse.LVSExtension.DCHelper;
