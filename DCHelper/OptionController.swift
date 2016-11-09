@@ -16,7 +16,6 @@ class OptionController: NSViewController {
     @IBOutlet var btnCancel: NSButton!
     
     @IBOutlet var editURL: NSTextField!
-    @IBOutlet var editWidth: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +29,6 @@ class OptionController: NSViewController {
             editURL.stringValue = src
             
             imgPreview.image = getImage(filePath: URL(string:src)!)
-
-            editWidth.stringValue = defaults.string(forKey: Const.USER_IMAGE_WIDTH)!
         }
     }
     
@@ -59,18 +56,14 @@ class OptionController: NSViewController {
         guard image != nil else {
             return nil
         }
-        
-        editWidth.stringValue = image!.size.width <= 850 ? String(Int(image!.size.width)) : "850"
-        
+
         return image
     }
     
     @IBAction func submit(_ sender: Any) {
         let defaults = UserDefaults.standard
         
-        defaults.set(editWidth.stringValue, forKey: Const.USER_IMAGE_WIDTH)
         defaults.set(editURL.stringValue, forKey: Const.USER_IMG_SRC)
-        
         defaults.synchronize()
         
         dismissViewController(self)

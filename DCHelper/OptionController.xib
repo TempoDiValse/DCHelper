@@ -12,7 +12,6 @@
                 <outlet property="btnOpen" destination="E0G-xu-Jhb" id="RwK-S5-Q2F"/>
                 <outlet property="btnSubmit" destination="URl-xZ-Ue5" id="idY-dy-KAS"/>
                 <outlet property="editURL" destination="WoG-Hu-sie" id="dKA-Ye-Ne5"/>
-                <outlet property="editWidth" destination="oGk-NV-5V3" id="7pK-Cg-Rxf"/>
                 <outlet property="imgPreview" destination="EA9-7c-2yo" id="C5W-7s-9vW"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -23,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WoG-Hu-sie">
-                    <rect key="frame" x="22" y="231" width="372" height="22"/>
+                    <rect key="frame" x="22" y="237" width="372" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="8k7-0P-2kV">
                         <font key="font" metaFont="system"/>
@@ -32,7 +31,7 @@
                     </textFieldCell>
                 </textField>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EA9-7c-2yo">
-                    <rect key="frame" x="22" y="61" width="438" height="150"/>
+                    <rect key="frame" x="22" y="48" width="438" height="181"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="p0k-gp-uaS"/>
                 </imageView>
@@ -61,17 +60,8 @@ Gw
                         <action selector="submit:" target="-2" id="VlE-Y9-Auf"/>
                     </connections>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7cx-Oh-Jja">
-                    <rect key="frame" x="22" y="22" width="48" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Width :" id="xlS-uR-r9s">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E0G-xu-Jhb">
-                    <rect key="frame" x="399" y="224" width="73" height="32"/>
+                    <rect key="frame" x="399" y="230" width="73" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="push" title="Open" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aWW-Ui-lvQ">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -81,33 +71,6 @@ Gw
                         <action selector="openFileDialog:" target="-2" id="KHX-dy-KTm"/>
                     </connections>
                 </button>
-                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oGk-NV-5V3">
-                    <rect key="frame" x="76" y="20" width="45" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Fgk-5h-kHY">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kfe-Zd-PLI">
-                    <rect key="frame" x="127" y="31" width="173" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="세로길이는 가로길이에 따라 변경" id="NcL-67-ok3">
-                        <font key="font" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9lU-yh-MTW">
-                    <rect key="frame" x="127" y="13" width="118" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="최대 가로길이 850px" id="RLd-3c-1it">
-                        <font key="font" size="13" name=".AppleSDGothicNeoI-Regular"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
             </subviews>
         </customView>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>

@@ -12,6 +12,7 @@ struct Const {
     static let USER_IMAGE_WIDTH = "u_img_w"
     static let USER_IMG_SRC = "u_img_src"
     static let USER_IMG_DATA = "u_img_data"
+    static let USER_IMG_ADD_AUTO = "u_img_add_auto"
     static let USER_BLOCK_ARRAY = "u_block_array"
     
     struct Page {
@@ -23,6 +24,8 @@ struct Const {
     struct MessageType {
         static let AutoImage = "auto_image"
         static let Block = "block"
-        static let RemoveUseless = "useless"
+        static let AddButton = "add_button"
+        
+        static let GetImage = "get_image"
     }
 }

@@ -15,6 +15,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSMenuDele
     
     @IBOutlet var btnList: NSButton!
     @IBOutlet var btnOpen: NSButton!
+    @IBOutlet var checkAuto: NSButton!
     
     @IBOutlet var lBlocker: NSTextField!
     @IBOutlet var bgLabel1: NSVisualEffectView!
@@ -37,6 +38,9 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSMenuDele
         
         let count = defaults.array(forKey: Const.USER_BLOCK_ARRAY)?.count ?? 0
         lBlocker.stringValue = String(count)
+        
+        let autoState = defaults.bool(forKey: Const.USER_IMG_ADD_AUTO) ? 1 : 0
+        checkAuto.state = autoState
     }
     
     @IBAction func openBlocker(_ sender: Any) {
@@ -45,5 +49,13 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSMenuDele
     
     @IBAction func openFileDialog(_ sender: Any) {
         self.presentViewControllerAsModalWindow(OptionController())
+    }
+    
+    @IBAction func isAutoMode(_ sender: Any) {
+        let btn = sender as! NSButton
+        
+        print(btn.state == 1)
+        
+        defaults.set(btn.state == 1, forKey: Const.USER_IMG_ADD_AUTO)
     }
 }

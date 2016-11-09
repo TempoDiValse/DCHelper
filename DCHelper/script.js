@@ -12,7 +12,9 @@ var Page = {
 
 var MessageType = {
     AutoImage : "auto_image",
-    Block: "block"
+    Block: "block",
+    AddButton: "add_button",
+    GetImage: "get_image"
 };
 
 var received;
@@ -50,25 +52,48 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 function fromExtension(e){
     received = e.message;
+    var type = received.type;
     
-    if(received.type == MessageType.AutoImage){
+    if(type == MessageType.AutoImage){
         var args = received.args;
-    
-        var _gID = document.getElementById("id").value;
-        var _rKey = document.getElementById("r_key").value;
-        var data = args.data;
-        var fileName = args.fileName;
         
-        var fObj = new FormData();
-        fObj.append("r_key",_rKey);
-        fObj.append("files[]", b64toBlob(data), fileName);
-        
-        request(URL_UPLOAD_IMG+id, fObj, autoImageProc);
+        setTimeout(function(){
+            var _gID = document.getElementById("id").value;
+            var _rKey = document.getElementById("r_key").value;
+            
+            var data = args.data;
+            var fileName = args.fileName;
+            
+            var fObj = new FormData();
+            fObj.append("r_key",_rKey);
+            fObj.append("files[]", b64toBlob(data), fileName);
+            
+            request(URL_UPLOAD_IMG+_gID, fObj, autoImageProc);
+        }, 500);
     
-    }else if(received.type == MessageType.Block){
+    }else if(type == MessageType.Block){
         var blockers = received.args;
         
         removeBlockedContent(blockers);
+    }else if(type == MessageType.AddButton){
+        var liObj = document.createElement("li");
+        liObj.setAttribute("class", "tx-list");
+        liObj.style.zIndex = 4;
+        liObj.style.marginTop = "1.45px";
+        
+        var aObj = document.createElement("a");
+        aObj.setAttribute("id", "btnAImage");
+        aObj.text = "고정이미지추가"
+        aObj.style.verticalAlign = "middle";
+        liObj.appendChild(aObj);
+        
+        var sideBarObj = document.getElementsByClassName("tx-bar-left")[0];
+        
+        sideBarObj.appendChild(liObj);
+        
+        document.getElementById("btnAImage").addEventListener("click", function(){
+              safari.extension.dispatchMessage(MessageType.GetImage);
+        })
     }
 }
 
@@ -109,12 +134,12 @@ var autoImageProc = function(data){
     }
     
     var injectScript = document.createElement("script");
-    injectScript.text = "Editor.getSidebar().getAttacher('image').attachHandler("+JSON.stringify(uploadedInfo)+")";
+    injectScript.text = "Editor.getSidebar().getAttacher('image').attachHandler("+JSON.stringify(uploadedInfo)+");";
     document.body.appendChild(injectScript);
     
     var iframeBody = document.getElementById("tx_canvas_wysiwyg").contentDocument.getElementsByTagName("body")[0];
     var autoImageObj = iframeBody.getElementsByClassName("txc-image")[0];
-    autoImageObj.style.maxWidth = received.args.width+"px";
+    iframeBody.innerHTML = "";
     
     document.getElementById("upload_status").value = 'Y';
 }

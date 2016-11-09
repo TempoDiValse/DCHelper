@@ -11,6 +11,7 @@
                 <outlet property="bgLabel1" destination="uew-ug-yCx" id="Ibt-q3-YSg"/>
                 <outlet property="btnList" destination="tgk-UV-L1C" id="0uQ-wn-HTV"/>
                 <outlet property="btnOpen" destination="yKH-Ln-R7R" id="kKO-0y-ZNW"/>
+                <outlet property="checkAuto" destination="kcR-Y9-5c9" id="IV4-Ud-ks7"/>
                 <outlet property="lBlocker" destination="yUA-j9-24l" id="t2F-fB-qMO"/>
                 <outlet property="openFileDialog" destination="yKH-Ln-R7R" id="d2i-Va-QHJ"/>
                 <outlet property="view" destination="c22-O7-iKe" id="vwT-Xx-Aiz"/>
@@ -52,7 +53,7 @@
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tgk-UV-L1C">
                     <rect key="frame" x="182" y="169" width="63" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="목록" bezelStyle="rounded" image="FF1D5231-7665-4DC0-9D8B-703AD3C2C73D" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uTK-nx-xlt">
+                    <buttonCell key="cell" type="push" title="목록" bezelStyle="rounded" image="3564629E-7F77-4140-ADB6-A3252CD3DACD" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uTK-nx-xlt">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" size="12" name=".AppleSDGothicNeoI-Thin"/>
                     </buttonCell>
@@ -94,7 +95,7 @@
                     </textFieldCell>
                 </textField>
                 <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="bVW-ZF-gfz">
-                    <rect key="frame" x="0.0" y="-20" width="250" height="144"/>
+                    <rect key="frame" x="0.0" y="-20" width="250" height="158"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </box>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tPU-H7-hYm">
@@ -126,6 +127,26 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kcR-Y9-5c9">
+                    <rect key="frame" x="113" y="143" width="18" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="only" state="on" inset="2" id="7kH-K9-PvB">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system" size="15"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="isAutoMode:" target="-2" id="Syt-7U-cRN"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bC1-eP-jss">
+                    <rect key="frame" x="131" y="145" width="27" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="자동" id="rH6-Kp-SzO">
+                        <font key="font" size="13" name=".AppleSDGothicNeoI-Thin"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
             </subviews>
             <animations>
                 <caTransition key="subviews">
@@ -144,7 +165,7 @@ APoBBgEYARsBIAAAAAAAAAIBAAAAAAAAACgAAAAAAAAAAAAAAAAAAAEiA
         </customView>
     </objects>
     <resources>
-        <image name="FF1D5231-7665-4DC0-9D8B-703AD3C2C73D" width="1" height="1">
+        <image name="3564629E-7F77-4140-ADB6-A3252CD3DACD" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

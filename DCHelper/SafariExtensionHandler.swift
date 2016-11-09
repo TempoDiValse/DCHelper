@@ -23,26 +23,43 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                 ])
             }
         } else if messageName == Const.Page.Write {
-            let url = defaults.string(forKey: Const.USER_IMG_SRC)
+            let isAutoAdd = defaults.bool(forKey: Const.USER_IMG_ADD_AUTO)
             
-            if url != nil {
-                do{
-                    let fileName = URL(string:url!)?.lastPathComponent
-                    let data = try Data.init(contentsOf: URL(string:url!)!).base64EncodedString()
-                    
-                    let width = defaults.string(forKey: Const.USER_IMAGE_WIDTH)
-                    
-                    page.dispatchMessageToScript(withName: "fromExtension", userInfo: [
-                        "type": Const.MessageType.AutoImage,
-                        "args": [
-                            "fileName": fileName,
-                            "data": data,
-                            "width": width
-                        ]
-                    ])
-                }catch{
-                    print(error)
-                }
+            if isAutoAdd {
+                sendFixImage()
+            }else{
+                page.dispatchMessageToScript(withName: "fromExtension", userInfo: ["type": Const.MessageType.AddButton])
+            }
+        }else if messageName == Const.MessageType.GetImage {
+            sendFixImage()
+        }
+    }
+    
+    func sendFixImage(){
+        let url = defaults.string(forKey: Const.USER_IMG_SRC)
+        
+        if url != nil {
+            do{
+                let fileName = URL(string:url!)?.lastPathComponent
+                let data = try Data.init(contentsOf: URL(string:url!)!).base64EncodedString()
+                
+                let datas =  [
+                    "type": Const.MessageType.AutoImage,
+                    "args": [
+                        "fileName": fileName,
+                        "data": data
+                    ]
+                ] as [String : Any]
+                
+                SFSafariApplication.getActiveWindow(completionHandler: {
+                    $0?.getActiveTab(completionHandler: {
+                        $0?.getActivePage(completionHandler: {
+                            $0?.dispatchMessageToScript(withName: "fromExtension", userInfo: datas)
+                        })
+                    })
+                })
+            }catch{
+                print(error)
             }
         }
     }
