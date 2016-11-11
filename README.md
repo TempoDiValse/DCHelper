@@ -1,8 +1,9 @@
-# DCHelper (on Developing, Beta)
+# DCHelper (on Developing, Closed)
 DCHelper for Safari (App Extension)
 
+- 크리티컬 이슈로 인해 실행파일 삭제. 고치는 중
+
 사파리에서는 디씨질을 원활하게 해주는 앱이 없다고 하여 만들어 봄.
-Beta 버젼임. 그러나 기능 추가하기는 귀찮아서 안할 예정.
 
 어떻게 개발하는 지 알기 위해서 대충 만들었기 때문에 퀄리티는 떨어짐.
 
