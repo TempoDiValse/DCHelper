@@ -22,6 +22,8 @@
 		CA38127B1DCB196800D223A7 /* BlockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3812791DCB196800D223A7 /* BlockController.swift */; };
 		CA38127C1DCB196800D223A7 /* BlockController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA38127A1DCB196800D223A7 /* BlockController.xib */; };
 		CA3ABE4F1DCAB94E001122B3 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3ABE4E1DCAB94E001122B3 /* Const.swift */; };
+		CADE1E351DD4456F007DA959 /* ImageDownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADE1E331DD4456F007DA959 /* ImageDownloadController.swift */; };
+		CADE1E361DD4456F007DA959 /* ImageDownloadController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADE1E341DD4456F007DA959 /* ImageDownloadController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		CA3812791DCB196800D223A7 /* BlockController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockController.swift; sourceTree = "<group>"; };
 		CA38127A1DCB196800D223A7 /* BlockController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlockController.xib; sourceTree = "<group>"; };
 		CA3ABE4E1DCAB94E001122B3 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		CADE1E331DD4456F007DA959 /* ImageDownloadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadController.swift; sourceTree = "<group>"; };
+		CADE1E341DD4456F007DA959 /* ImageDownloadController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageDownloadController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,8 @@
 				CA10F89C1DC9793C0038CA26 /* OptionController.xib */,
 				CA3812791DCB196800D223A7 /* BlockController.swift */,
 				CA38127A1DCB196800D223A7 /* BlockController.xib */,
+				CADE1E331DD4456F007DA959 /* ImageDownloadController.swift */,
+				CADE1E341DD4456F007DA959 /* ImageDownloadController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -257,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA10F88D1DC8606B0038CA26 /* ToolbarItemIcon.pdf in Resources */,
+				CADE1E361DD4456F007DA959 /* ImageDownloadController.xib in Resources */,
 				CA38127C1DCB196800D223A7 /* BlockController.xib in Resources */,
 				CA10F8881DC8606B0038CA26 /* SafariExtensionViewController.xib in Resources */,
 				CA10F89E1DC9793C0038CA26 /* OptionController.xib in Resources */,
@@ -282,6 +289,7 @@
 				CA10F89D1DC9793C0038CA26 /* OptionController.swift in Sources */,
 				CA3ABE4F1DCAB94E001122B3 /* Const.swift in Sources */,
 				CA10F8851DC8606B0038CA26 /* SafariExtensionViewController.swift in Sources */,
+				CADE1E351DD4456F007DA959 /* ImageDownloadController.swift in Sources */,
 				CA38127B1DCB196800D223A7 /* BlockController.swift in Sources */,
 				CA10F8831DC8606B0038CA26 /* SafariExtensionHandler.swift in Sources */,
 			);

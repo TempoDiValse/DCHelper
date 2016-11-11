@@ -16,6 +16,7 @@ struct Const {
     static let USER_BLOCK_ARRAY = "u_block_array"
     
     struct Page {
+        static let DOMAIN_PREFIX = "http://gall.dcinside.com/"
         static let List = "lists";
         static let Write = "write";
         static let View = "view";
@@ -25,7 +26,9 @@ struct Const {
         static let AutoImage = "auto_image"
         static let Block = "block"
         static let AddButton = "add_button"
+        static let Download = "download_file"
         
         static let GetImage = "get_image"
+        static let SendURLFromWeb = "send_urls"
     }
 }

@@ -18,7 +18,7 @@ class BlockController: NSViewController, NSTableViewDelegate, NSTableViewDataSou
     @IBOutlet var ipBlocker: NSTextField!
     
     let defaults = UserDefaults.standard
-    var items : [String] = []
+    private var items : [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

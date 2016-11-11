@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ImageDownloadController" customModule="DCHelper" customModuleProvider="target">
+            <connections>
+                <outlet property="btnClose" destination="aQI-W1-qX9" id="0qn-JC-hmO"/>
+                <outlet property="btnDownload" destination="ySn-PX-IQp" id="4u6-ZU-mHd"/>
+                <outlet property="btnPath" destination="ghE-IF-AGk" id="fI5-LB-moU"/>
+                <outlet property="editPath" destination="anT-Bc-SsK" id="kF7-0c-fnb"/>
+                <outlet property="tableView" destination="9yk-5c-sNH" id="0Rv-s0-CXK"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="anT-Bc-SsK">
+                    <rect key="frame" x="116" y="241" width="348" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Lih-a6-qGR">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" scrollerKnobStyle="dark" translatesAutoresizingMaskIntoConstraints="NO" id="xdT-dO-hdP">
+                    <rect key="frame" x="17" y="49" width="447" height="184"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="6dW-ch-9kC">
+                        <rect key="frame" x="1" y="1" width="445" height="182"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" mirrorLayoutDirectionWhenInternationalizing="never" columnAutoresizingStyle="none" columnReordering="NO" columnSelection="YES" columnResizing="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" id="9yk-5c-sNH">
+                                <rect key="frame" x="0.0" y="0.0" width="445" height="182"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
+                                <color key="gridColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn identifier="url" width="442" minWidth="40" maxWidth="1000" id="EXV-SI-Yz2">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" title="Text Cell" id="Rt6-hy-dM0">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                    </tableColumn>
+                                </tableColumns>
+                            </tableView>
+                        </subviews>
+                        <nil key="backgroundColor"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="T3p-As-3xY">
+                        <rect key="frame" x="0.0" y="168" width="447" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="kgC-Cr-R2d">
+                        <rect key="frame" x="431" y="0.0" width="16" height="184"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySn-PX-IQp">
+                    <rect key="frame" x="385" y="13" width="85" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="다운로드" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tZr-Gn-JRP">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" size="13" name=".AppleSDGothicNeoI-Regular"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="downloadAll:" target="-2" id="Dll-JC-fC4"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQI-W1-qX9">
+                    <rect key="frame" x="322" y="13" width="63" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="닫기" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LRW-ef-pAv">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" size="13" name=".AppleSDGothicNeoI-Regular"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="windowClose:" target="-2" id="5Ax-w6-CI8"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ghE-IF-AGk">
+                    <rect key="frame" x="11" y="235" width="85" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="폴더설정" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cIi-7O-syY">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" size="13" name=".AppleSDGothicNeoI-Regular"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="configureFolderPath:" target="-2" id="gDW-Ns-Kws"/>
+                    </connections>
+                </button>
+            </subviews>
+        </customView>
+    </objects>
+</document>

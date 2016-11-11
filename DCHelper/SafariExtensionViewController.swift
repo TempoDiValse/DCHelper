@@ -8,7 +8,7 @@
 
 import SafariServices
 
-class SafariExtensionViewController: SFSafariExtensionViewController, NSMenuDelegate{
+class SafariExtensionViewController: SFSafariExtensionViewController{
     
     static let shared = SafariExtensionViewController()
     let defaults = UserDefaults.standard
@@ -16,6 +16,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSMenuDele
     @IBOutlet var btnList: NSButton!
     @IBOutlet var btnOpen: NSButton!
     @IBOutlet var checkAuto: NSButton!
+    @IBOutlet var btnDownload: NSButton!
     
     @IBOutlet var lBlocker: NSTextField!
     @IBOutlet var bgLabel1: NSVisualEffectView!
@@ -57,5 +58,23 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSMenuDele
         print(btn.state == 1)
         
         defaults.set(btn.state == 1, forKey: Const.USER_IMG_ADD_AUTO)
+    }
+    
+    @IBAction func downloadAll(_ sender: Any) {
+        SFSafariApplication.getActiveWindow(completionHandler: {
+            $0?.getActiveTab(completionHandler: {
+                $0?.getActivePage(completionHandler: {
+                    let page = $0
+                    
+                    $0?.getPropertiesWithCompletionHandler({ (props) in
+                        let url = props?.url?.absoluteString
+                        
+                        if (url?.contains(Const.Page.View))! {
+                            page?.dispatchMessageToScript(withName: "fromExtension", userInfo: ["type" : Const.MessageType.Download])
+                        }
+                    })
+                })
+            })
+        })
     }
 }
