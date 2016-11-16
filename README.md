@@ -4,19 +4,18 @@ DCHelper for Safari (App Extension)
 사파리에서는 디씨질을 원활하게 해주는 앱이 없다고 하여 만들어 봄.<br>
 어떻게 개발하는 지 알기 위해서 대충 만들었기 때문에 퀄리티는 떨어짐.
 <br>
-======
 기능 
 ======
 1. 닉네임 차단
 2. 자동 이미지 등록
 3. 이미지 다운
 <br>
-======
+
 권장사양
 ======
 Mac OS X 10.12(Sierra) 이상인 맥
 <br><br>
-======
+
 사용법
 ======
 1. LVSExtension.app 다운 및 실행하고 경고 메세지를 보고 끈다.<br>
@@ -28,5 +27,5 @@ Mac OS X 10.12(Sierra) 이상인 맥
 삭제: 사파리 환경설정에서 DCHelper 체크 해제 한 후 사파리를 종료하고 LVSExtension.app을 휴지통에 넣고 완전히 삭제한다.
 <br>
 
-Author: LaValse
-2016.11.08
+Author: LaValse<br>
+2016.11.16
