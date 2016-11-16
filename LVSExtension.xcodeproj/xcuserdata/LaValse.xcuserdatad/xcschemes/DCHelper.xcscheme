@@ -81,13 +81,6 @@
             ReferencedContainer = "container:LVSExtension.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "CG_CONTEXT_SHOW_BACKTRACE"
-            value = "NO"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

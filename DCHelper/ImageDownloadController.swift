@@ -16,7 +16,10 @@ class ImageDownloadController: NSViewController, NSTableViewDelegate, NSTableVie
     @IBOutlet var btnDownload: NSButton!
     @IBOutlet var btnClose: NSButton!
     
-    private var _url = [String]()
+    private var _url = [[String:String]]()
+    private var _dest : URL?
+    
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,16 +33,23 @@ class ImageDownloadController: NSViewController, NSTableViewDelegate, NSTableVie
     
     override func viewDidAppear() {
         super.viewDidAppear()
+        
+        if let path = defaults.url(forKey: Const.USER_DOWNLOAD_PATH) {
+            editPath.stringValue = path.absoluteString
+            _dest = path
+        }
+        
+        tableView.reloadData()
     }
     
-    func setURLs(url:[String]){
+    func setURLs(url:[[String: String]]){
         if url.count > 0 {
             self._url = url
         }
     }
  
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return (tableColumn?.identifier == "url") ? _url[row] : ""
+        return (tableColumn?.identifier == "url") ? _url[row]["name"] : ""
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -50,21 +60,50 @@ class ImageDownloadController: NSViewController, NSTableViewDelegate, NSTableVie
         let panel = NSOpenPanel()
         panel.canChooseFiles = false
         panel.canChooseDirectories = true
-        panel.canCreateDirectories = true
-        panel.beginSheetModal(for: self.view.window!, completionHandler: {
-            if $0 == NSFileHandlingPanelOKButton {
-                let url = panel.urls[0]
-                
-                self.editPath.stringValue = url.absoluteString
-            }
-        })
+        let response = panel.runModal()
+        
+        if response == NSFileHandlingPanelOKButton {
+            _dest = panel.urls[0]
+            
+            self.editPath.stringValue = (_dest?.absoluteString)!
+        }
     }
     
     @IBAction func downloadAll(_ sender: Any) {
+        let path = _dest
+        guard path != nil else {
+            configureFolderPath("")
+            return;
+        }
         
+        let queueGroup = DispatchGroup()
+        
+        for _u in _url {
+            queueGroup.enter()
+            
+            let session = URLSession.shared
+            session.downloadTask(with: URL(string: _u["url"]!)!, completionHandler: { (url, response, err) in
+                let data = NSData(contentsOf: url!)
+                
+                do{
+                    try data?.write(to: path!.appendingPathComponent(_u["name"]!), options: NSData.WritingOptions.atomic)
+                }catch{
+                    print(error)
+                }
+                
+            }).resume()
+            queueGroup.leave()
+        }
+        
+        queueGroup.notify(queue: DispatchQueue.main, execute: {
+            self.defaults.set(path, forKey: Const.USER_DOWNLOAD_PATH)
+            self.defaults.synchronize()
+            
+            self.dismissViewController(self)
+        })
     }
     
     @IBAction func windowClose(_ sender: Any) {
-        self.view.window?.close()
+        dismissViewController(self)
     }
 }

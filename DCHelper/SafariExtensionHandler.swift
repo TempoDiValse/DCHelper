@@ -14,18 +14,27 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     let defaults = UserDefaults.standard
     
     override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]?) {
+        
         page.getPropertiesWithCompletionHandler({
             let url = $0?.url?.absoluteString
             
             if (url?.hasPrefix(Const.Page.DOMAIN_PREFIX))! {
                 if((url?.contains(Const.Page.List))! || (url?.contains(Const.Page.View))!){
                     /* specific function of its page */
+                    
                     guard messageName != Const.MessageType.SendURLFromWeb else {
-                        let urls = userInfo!["urls"] as! [String]
+                        let href = userInfo!["href"] as! String
+                        let urls = userInfo!["urls"] as! [[String:String]]
+                        
+                        /* 이미 꺼져 버린 페이지에서 호출이 일어나 URL 대조가 필요 */
+                        guard href == url else {
+                            return
+                        }
                         
                         let ctrlr = ImageDownloadController()
                         ctrlr.setURLs(url: urls)
-                        self.popoverViewController().presentViewControllerAsModalWindow(ctrlr)
+                        
+                        self.performSelector(onMainThread: #selector(self.openDownloadList), with: ctrlr, waitUntilDone: true)
                         
                         return;
                     }
@@ -53,6 +62,12 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                 }
             }
         })
+    }
+    
+    func openDownloadList(sender: Any){
+        let pVC = self.popoverViewController()
+        
+        pVC.presentViewController(sender as! ImageDownloadController, asPopoverRelativeTo: NSRect(x: 0, y: 0, width: 0, height: 0), of: pVC.view, preferredEdge: NSRectEdge.maxX, behavior: .transient)
     }
     
     func sendFixImage(){

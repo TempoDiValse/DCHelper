@@ -70,6 +70,7 @@
 		CA3812791DCB196800D223A7 /* BlockController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockController.swift; sourceTree = "<group>"; };
 		CA38127A1DCB196800D223A7 /* BlockController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlockController.xib; sourceTree = "<group>"; };
 		CA3ABE4E1DCAB94E001122B3 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		CA9CDEA61DDC20E3002310CE /* LVSExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LVSExtension.entitlements; sourceTree = "<group>"; };
 		CADE1E331DD4456F007DA959 /* ImageDownloadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadController.swift; sourceTree = "<group>"; };
 		CADE1E341DD4456F007DA959 /* ImageDownloadController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageDownloadController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +116,7 @@
 		CA10F8691DC860570038CA26 /* LVSExtension */ = {
 			isa = PBXGroup;
 			children = (
+				CA9CDEA61DDC20E3002310CE /* LVSExtension.entitlements */,
 				CA10F86A1DC860570038CA26 /* AppDelegate.swift */,
 				CA10F86C1DC860570038CA26 /* Assets.xcassets */,
 				CA10F86E1DC860570038CA26 /* MainMenu.xib */,
@@ -221,6 +223,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 32QE36VTWH;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					CA10F87A1DC8606B0038CA26 = {
 						CreatedOnToolsVersion = 8.1;
@@ -420,6 +427,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LVSExtension/LVSExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 32QE36VTWH;
@@ -436,6 +444,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LVSExtension/LVSExtension.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 32QE36VTWH;

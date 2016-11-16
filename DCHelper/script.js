@@ -24,6 +24,7 @@ var currentPage = "";
 var gType = "main";
 
 var _href = document.location.href;
+safari.self.addEventListener("message", fromExtension, true);
 
 document.addEventListener("DOMContentLoaded", function(event) {
     var url = document.location.href;
@@ -50,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }	
 
         if(currentPage != ""){
-            safari.self.addEventListener("message", fromExtension, false);
             safari.extension.dispatchMessage(currentPage);
         }
     }
@@ -128,18 +128,23 @@ function fromExtension(e){
             safari.extension.dispatchMessage(MessageType.GetImage);
         })
     }else if(type == MessageType.Download){
-        var imgObjs = document.querySelectorAll(".s_write img");
+        var refs = document.querySelectorAll(".appending_file .icon_pic");
         var arrs = [];
         
-        console.log(document.location.href);
-        
-        if(imgObjs.length > 0){
-            [].forEach.call(imgObjs, function(el){
-                var src = el.src;
-                arrs.push(src);
+        if(refs.length > 0){
+            [].forEach.call(refs, function(el){
+                var aObj = el.children[0];
+                
+                var url = aObj.href.replace("image.dcinside.com/download.php","dcimg2.dcinside.com/viewimage.php");
+                var file = {
+                    name : aObj.text,
+                    url : url
+                }
+                
+                arrs.push(file);
             });
             
-            safari.extension.dispatchMessage(MessageType.SendURLToApp, { "urls": arrs });
+            safari.extension.dispatchMessage(MessageType.SendURLToApp, { "href":_href, "urls": arrs });
         }else{
             console.log("nothing to download");
         }

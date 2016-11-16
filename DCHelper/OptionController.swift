@@ -36,16 +36,16 @@ class OptionController: NSViewController {
         let dialog = NSOpenPanel()
         
         dialog.allowedFileTypes = NSImage.imageTypes()
-        dialog.beginSheetModal(for: self.view.window!, completionHandler: { (result) in
-            if result == NSFileHandlingPanelOKButton {
-                let url = dialog.urls[0]
-                
-                self.editURL.stringValue = url.absoluteString
-                let image = self.getImage(filePath: url)
-                
-                self.imgPreview.image = image
-            }
-        })
+        let response = dialog.runModal()
+        
+        if response == NSFileHandlingPanelOKButton {
+            let url = dialog.urls[0]
+            
+            self.editURL.stringValue = url.absoluteString
+            let image = self.getImage(filePath: url)
+            
+            self.imgPreview.image = image
+        }
     }
     
     func getImage(filePath: URL) -> NSImage?{

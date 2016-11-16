@@ -55,7 +55,7 @@ class BlockController: NSViewController, NSTableViewDelegate, NSTableViewDataSou
         defaults.set(items, forKey: Const.USER_BLOCK_ARRAY)
         defaults.synchronize()
         
-        self.view.window!.close()
+        dismissViewController(self)
     }
     
     @IBAction func deleteRow(_ sender: Any) {

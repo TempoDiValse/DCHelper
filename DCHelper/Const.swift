@@ -14,6 +14,7 @@ struct Const {
     static let USER_IMG_DATA = "u_img_data"
     static let USER_IMG_ADD_AUTO = "u_img_add_auto"
     static let USER_BLOCK_ARRAY = "u_block_array"
+    static let USER_DOWNLOAD_PATH = "u_down_path"
     
     struct Page {
         static let DOMAIN_PREFIX = "http://gall.dcinside.com/"

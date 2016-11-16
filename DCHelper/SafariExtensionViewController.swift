@@ -45,11 +45,11 @@ class SafariExtensionViewController: SFSafariExtensionViewController{
     }
     
     @IBAction func openBlocker(_ sender: Any) {
-        self.presentViewControllerAsModalWindow(BlockController())
+        self.presentViewController(BlockController(), asPopoverRelativeTo: NSRect(x: 0, y: 100, width: 0, height: 0), of: self.view, preferredEdge: NSRectEdge.maxX, behavior: .transient)
     }
     
     @IBAction func openFileDialog(_ sender: Any) {
-        self.presentViewControllerAsModalWindow(OptionController())
+        self.presentViewController(OptionController(), asPopoverRelativeTo: NSRect(x: 0, y: 100, width: 0, height: 0), of: self.view, preferredEdge: NSRectEdge.maxX, behavior: .transient)
     }
     
     @IBAction func isAutoMode(_ sender: Any) {
@@ -61,6 +61,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController{
     }
     
     @IBAction func downloadAll(_ sender: Any) {
+        
         SFSafariApplication.getActiveWindow(completionHandler: {
             $0?.getActiveTab(completionHandler: {
                 $0?.getActivePage(completionHandler: {
@@ -68,6 +69,9 @@ class SafariExtensionViewController: SFSafariExtensionViewController{
                     
                     $0?.getPropertiesWithCompletionHandler({ (props) in
                         let url = props?.url?.absoluteString
+                        
+                        guard url != nil else { return }
+                        guard (url?.hasPrefix(Const.Page.DOMAIN_PREFIX))! else { return }
                         
                         if (url?.contains(Const.Page.View))! {
                             page?.dispatchMessageToScript(withName: "fromExtension", userInfo: ["type" : Const.MessageType.Download])
