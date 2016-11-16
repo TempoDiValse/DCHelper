@@ -2,7 +2,7 @@
 //  ImageDownloadController.swift
 //  LVSExtension
 //
-//  Created by 머니투데이 on 2016. 11. 10..
+//  Created by LaValse on 2016. 11. 10..
 //  Copyright © 2016년 LaValse. All rights reserved.
 //
 
