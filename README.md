@@ -28,4 +28,6 @@ Mac OS X 10.12(Sierra) 이상인 맥
 <br>
 
 Author: LaValse<br>
-2016.11.16
+2016.11.16<br>
+
+Contact : jiwow34@gmail.com
