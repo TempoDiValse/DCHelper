@@ -15,7 +15,7 @@ DCHelper for Safari (App Extension)
 
 권장사양
 ======
-Mac OS X 10.12(Sierra) 이상인 맥
+Higher than Mac OS X 10.12(Sierra) 
 <br><br>
 
 사용법
