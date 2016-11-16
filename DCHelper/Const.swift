@@ -2,7 +2,7 @@
 //  Const.swift
 //  LVSExtension
 //
-//  Created by 머니투데이 on 2016. 11. 3..
+//  Created by LaValse on 2016. 11. 3..
 //  Copyright © 2016년 LaValse. All rights reserved.
 //
 
