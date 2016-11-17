@@ -16,7 +16,7 @@ DCHelper for Safari (App Extension)
 
 권장사양
 ======
-Higher than Mac OS X 10.12(Sierra) 
+Mac OS X 10.12(Sierra) 부터 사용가능
 <br><br>
 
 사용법
@@ -26,6 +26,8 @@ Higher than Mac OS X 10.12(Sierra)
 3. 앱을 다시 실행하고 빈 화면이 나오면 꺼버린다.<br>
 4. Safari > 환경설정 > 확장프로그램 가면 DCHelper라고 뜨는거 체크 하면 주소창 왼쪽에 마이너스 버튼이 하나 뜸.<br>
 5. 사용한다.<br>
+
+* 처음 시작할 때, 한번 클릭하고 늦게 뜰 수 있음. 그럴 때는 그냥 냅두면 잘 켜짐. 안켜지면 사파리를 껏다 키면 잘 됨
 <br>
 삭제: 사파리 환경설정에서 DCHelper 체크 해제 한 후 사파리를 종료하고 LVSExtension.app을 휴지통에 넣고 완전히 삭제한다.
 <br>
