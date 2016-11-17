@@ -1,4 +1,4 @@
-# DCHelper (*Beta*)
+# DCHelper 1.0(*Beta*)
 DCHelper for Safari (App Extension)
 
 사파리에서는 디씨질을 원활하게 해주는 앱이 없다고 하여 만들어 봄.<br>
