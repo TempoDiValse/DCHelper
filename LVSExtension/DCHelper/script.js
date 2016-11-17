@@ -16,7 +16,6 @@ var MessageType = {
     AddButton: "add_button",
     GetImage: "get_image",
     Download: "download_file",
-    RecentVisited: "recent_visited",
     SendURLToApp: "send_urls"
 };
 
@@ -43,8 +42,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         if(dcurl.startsWith(Page.List)){
             currentPage = Page.List;
-            
-            safari.extension.dispatchMessage(MessageType.RecentVisited, getRecentVisitedList());
         }else if(dcurl.startsWith(Page.Write)){
             currentPage = Page.Write;
         }else if(dcurl.startsWith(Page.View)){
@@ -58,24 +55,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
     }
 });
-
-function getRecentVisitedList(){
-    var cookieData = unescape(getCookie("lately_cookie")).split("@@");
-    
-    var arr = [];
-    arr.push({ "id": "", "name": "선택" });
-    
-    [].forEach.call(cookieData, function(o){
-        var _split = o.split("|");
-        
-        arr.push({
-            "id": _split[0],
-            "name": _split[1]
-        });
-    });
-    
-    return { "list": arr };
-}
 
 function fromExtension(e){
     if(currentPage == "") return; // 현재 페이지가 없는 이벤트는 실행할 수 없도록 방지.
@@ -269,19 +248,4 @@ function b64toBlob(b64Data, contentType, sliceSize) {
     
     var blob = new Blob(byteArrays, {type: contentType});
     return blob;
-}
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i <ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length,c.length);
-        }
-    }
-    return "";
 }

@@ -2,13 +2,13 @@
 //  ImageDownloadController.swift
 //  LVSExtension
 //
-//  Created by LaValse on 2016. 11. 10..
+//  Created by 머니투데이 on 2016. 11. 10..
 //  Copyright © 2016년 LaValse. All rights reserved.
 //
 
 import Cocoa
 
-class ImageDownloadController: NSViewController, NSTableViewDelegate, NSTableViewDataSource {
+class ImageDownloadController: NSViewController, NSTableViewDelegate, NSTableViewDataSource, NSOpenSavePanelDelegate {
     @IBOutlet var editPath: NSTextField!
     @IBOutlet var btnPath: NSButton!
     @IBOutlet var tableView: NSTableView!
@@ -71,7 +71,6 @@ class ImageDownloadController: NSViewController, NSTableViewDelegate, NSTableVie
     
     @IBAction func downloadAll(_ sender: Any) {
         let path = _dest
-        
         guard path != nil else {
             configureFolderPath("")
             return;

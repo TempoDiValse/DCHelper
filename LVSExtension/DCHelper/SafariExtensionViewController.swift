@@ -8,7 +8,7 @@
 
 import SafariServices
 
-class SafariExtensionViewController: SFSafariExtensionViewController, NSComboBoxDelegate, NSComboBoxDataSource{
+class SafariExtensionViewController: SFSafariExtensionViewController{
     
     static let shared = SafariExtensionViewController()
     let defaults = UserDefaults.standard
@@ -17,12 +17,9 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSComboBox
     @IBOutlet var btnOpen: NSButton!
     @IBOutlet var checkAuto: NSButton!
     @IBOutlet var btnDownload: NSButton!
-    @IBOutlet var selectRecentVisited: NSComboBox!
     
     @IBOutlet var lBlocker: NSTextField!
     @IBOutlet var bgLabel1: NSVisualEffectView!
-    
-    var vList = [[String:String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +32,6 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSComboBox
         bgLabel1.layer?.backgroundColor = CGColor(red: 174.0/255.0, green: 118.0/255.0, blue: 232.0/255.0, alpha: 1.0)
         bgLabel1.blendingMode = .withinWindow
         bgLabel1.material = .dark
-        
-        selectRecentVisited.delegate = self
-        selectRecentVisited.dataSource = self
     }
     
     override func viewDidAppear() {
@@ -48,10 +42,6 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSComboBox
         
         let autoState = defaults.bool(forKey: Const.USER_IMG_ADD_AUTO) ? 1 : 0
         checkAuto.state = autoState
-        
-        vList = defaults.array(forKey: Const.USER_RECENT_VISITED) as! [[String : String]]
-        selectRecentVisited.reloadData()
-        selectRecentVisited.selectItem(at: 0)
     }
     
     @IBAction func openBlocker(_ sender: Any) {
@@ -90,28 +80,5 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSComboBox
                 })
             })
         })
-    }
-    
-    func comboBoxSelectionDidChange(_ notification: Notification) {
-        let _i = selectRecentVisited.indexOfSelectedItem
-        guard _i != 0 else { return }
-        
-        let _u = URL(string:"\(Const.Page.DOMAIN_PREFIX)\(vList[_i]["id"]!)")
-        
-        SFSafariApplication.getActiveWindow(completionHandler: {
-            $0?.openTab(with: _u!, makeActiveIfPossible: true, completionHandler: {
-                $0?.activate(completionHandler: { 
-                    print("new tab opened")
-                })
-            })
-        })
-    }
-    
-    func numberOfItems(in comboBox: NSComboBox) -> Int {
-        return vList.count
-    }
-    
-    func comboBox(_ comboBox: NSComboBox, objectValueForItemAt index: Int) -> Any? {
-        return vList[index]["name"]
     }
 }

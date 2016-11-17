@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CA10F86B1DC860570038CA26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA10F86A1DC860570038CA26 /* AppDelegate.swift */; };
+		CA10F86D1DC860570038CA26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA10F86C1DC860570038CA26 /* Assets.xcassets */; };
+		CA10F8701DC860570038CA26 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA10F86E1DC860570038CA26 /* MainMenu.xib */; };
+		CA10F87E1DC8606B0038CA26 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA10F87D1DC8606B0038CA26 /* Cocoa.framework */; };
+		CA10F8831DC8606B0038CA26 /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA10F8821DC8606B0038CA26 /* SafariExtensionHandler.swift */; };
+		CA10F8851DC8606B0038CA26 /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA10F8841DC8606B0038CA26 /* SafariExtensionViewController.swift */; };
+		CA10F8881DC8606B0038CA26 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA10F8861DC8606B0038CA26 /* SafariExtensionViewController.xib */; };
+		CA10F88B1DC8606B0038CA26 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = CA10F88A1DC8606B0038CA26 /* script.js */; };
+		CA10F88D1DC8606B0038CA26 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CA10F88C1DC8606B0038CA26 /* ToolbarItemIcon.pdf */; };
+		CA10F8901DC8606B0038CA26 /* DCHelper.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CA10F87B1DC8606B0038CA26 /* DCHelper.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CA10F89D1DC9793C0038CA26 /* OptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA10F89B1DC9793C0038CA26 /* OptionController.swift */; };
+		CA10F89E1DC9793C0038CA26 /* OptionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA10F89C1DC9793C0038CA26 /* OptionController.xib */; };
+		CA38127B1DCB196800D223A7 /* BlockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3812791DCB196800D223A7 /* BlockController.swift */; };
+		CA38127C1DCB196800D223A7 /* BlockController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA38127A1DCB196800D223A7 /* BlockController.xib */; };
+		CA3ABE4F1DCAB94E001122B3 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3ABE4E1DCAB94E001122B3 /* Const.swift */; };
+		CADE1E351DD4456F007DA959 /* ImageDownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADE1E331DD4456F007DA959 /* ImageDownloadController.swift */; };
+		CADE1E361DD4456F007DA959 /* ImageDownloadController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADE1E341DD4456F007DA959 /* ImageDownloadController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CA10F88E1DC8606B0038CA26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA10F85F1DC860560038CA26 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA10F87A1DC8606B0038CA26;
+			remoteInfo = DCHelper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CA10F8941DC8606B0038CA26 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CA10F8901DC8606B0038CA26 /* DCHelper.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		CA10F8671DC860570038CA26 /* LVSExtension.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LVSExtension.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA10F86A1DC860570038CA26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CA10F86C1DC860570038CA26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA10F86F1DC860570038CA26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		CA10F8711DC860570038CA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA10F87B1DC8606B0038CA26 /* DCHelper.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DCHelper.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA10F87D1DC8606B0038CA26 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		CA10F8811DC8606B0038CA26 /* DCHelper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DCHelper.entitlements; sourceTree = "<group>"; };
+		CA10F8821DC8606B0038CA26 /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
+		CA10F8841DC8606B0038CA26 /* SafariExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionViewController.swift; sourceTree = "<group>"; };
+		CA10F8871DC8606B0038CA26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
+		CA10F8891DC8606B0038CA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA10F88A1DC8606B0038CA26 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+		CA10F88C1DC8606B0038CA26 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
+		CA10F89B1DC9793C0038CA26 /* OptionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionController.swift; sourceTree = "<group>"; };
+		CA10F89C1DC9793C0038CA26 /* OptionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionController.xib; sourceTree = "<group>"; };
+		CA3812791DCB196800D223A7 /* BlockController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockController.swift; sourceTree = "<group>"; };
+		CA38127A1DCB196800D223A7 /* BlockController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlockController.xib; sourceTree = "<group>"; };
+		CA3ABE4E1DCAB94E001122B3 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		CA9CDEA61DDC20E3002310CE /* LVSExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LVSExtension.entitlements; sourceTree = "<group>"; };
+		CADE1E331DD4456F007DA959 /* ImageDownloadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadController.swift; sourceTree = "<group>"; };
+		CADE1E341DD4456F007DA959 /* ImageDownloadController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageDownloadController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CA10F8641DC860560038CA26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA10F8781DC8606B0038CA26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA10F87E1DC8606B0038CA26 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CA10F85E1DC860560038CA26 = {
+			isa = PBXGroup;
+			children = (
+				CA10F8691DC860570038CA26 /* LVSExtension */,
+				CA10F87F1DC8606B0038CA26 /* DCHelper */,
+				CA10F87C1DC8606B0038CA26 /* Frameworks */,
+				CA10F8681DC860570038CA26 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA10F8681DC860570038CA26 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA10F8671DC860570038CA26 /* LVSExtension.app */,
+				CA10F87B1DC8606B0038CA26 /* DCHelper.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CA10F8691DC860570038CA26 /* LVSExtension */ = {
+			isa = PBXGroup;
+			children = (
+				CA9CDEA61DDC20E3002310CE /* LVSExtension.entitlements */,
+				CA10F86A1DC860570038CA26 /* AppDelegate.swift */,
+				CA10F86C1DC860570038CA26 /* Assets.xcassets */,
+				CA10F86E1DC860570038CA26 /* MainMenu.xib */,
+				CA10F8711DC860570038CA26 /* Info.plist */,
+			);
+			path = LVSExtension;
+			sourceTree = "<group>";
+		};
+		CA10F87C1DC8606B0038CA26 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA10F87D1DC8606B0038CA26 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA10F87F1DC8606B0038CA26 /* DCHelper */ = {
+			isa = PBXGroup;
+			children = (
+				CA3ABE4E1DCAB94E001122B3 /* Const.swift */,
+				CA10F8821DC8606B0038CA26 /* SafariExtensionHandler.swift */,
+				CAE16DF51DD058830050B101 /* Controllers */,
+				CA10F8891DC8606B0038CA26 /* Info.plist */,
+				CA10F88A1DC8606B0038CA26 /* script.js */,
+				CA10F88C1DC8606B0038CA26 /* ToolbarItemIcon.pdf */,
+				CA10F8801DC8606B0038CA26 /* Supporting Files */,
+			);
+			path = DCHelper;
+			sourceTree = "<group>";
+		};
+		CA10F8801DC8606B0038CA26 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CA10F8811DC8606B0038CA26 /* DCHelper.entitlements */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CAE16DF51DD058830050B101 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CA10F8841DC8606B0038CA26 /* SafariExtensionViewController.swift */,
+				CA10F8861DC8606B0038CA26 /* SafariExtensionViewController.xib */,
+				CA10F89B1DC9793C0038CA26 /* OptionController.swift */,
+				CA10F89C1DC9793C0038CA26 /* OptionController.xib */,
+				CA3812791DCB196800D223A7 /* BlockController.swift */,
+				CA38127A1DCB196800D223A7 /* BlockController.xib */,
+				CADE1E331DD4456F007DA959 /* ImageDownloadController.swift */,
+				CADE1E341DD4456F007DA959 /* ImageDownloadController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CA10F8661DC860560038CA26 /* LVSExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA10F8741DC860570038CA26 /* Build configuration list for PBXNativeTarget "LVSExtension" */;
+			buildPhases = (
+				CA10F8631DC860560038CA26 /* Sources */,
+				CA10F8641DC860560038CA26 /* Frameworks */,
+				CA10F8651DC860560038CA26 /* Resources */,
+				CA10F8941DC8606B0038CA26 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA10F88F1DC8606B0038CA26 /* PBXTargetDependency */,
+			);
+			name = LVSExtension;
+			productName = LVSExtension;
+			productReference = CA10F8671DC860570038CA26 /* LVSExtension.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CA10F87A1DC8606B0038CA26 /* DCHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA10F8911DC8606B0038CA26 /* Build configuration list for PBXNativeTarget "DCHelper" */;
+			buildPhases = (
+				CA10F8771DC8606B0038CA26 /* Sources */,
+				CA10F8781DC8606B0038CA26 /* Frameworks */,
+				CA10F8791DC8606B0038CA26 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DCHelper;
+			productName = DCHelper;
+			productReference = CA10F87B1DC8606B0038CA26 /* DCHelper.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA10F85F1DC860560038CA26 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = LaValse;
+				TargetAttributes = {
+					CA10F8661DC860560038CA26 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 32QE36VTWH;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+					CA10F87A1DC8606B0038CA26 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 32QE36VTWH;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CA10F8621DC860560038CA26 /* Build configuration list for PBXProject "LVSExtension" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CA10F85E1DC860560038CA26;
+			productRefGroup = CA10F8681DC860570038CA26 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA10F8661DC860560038CA26 /* LVSExtension */,
+				CA10F87A1DC8606B0038CA26 /* DCHelper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CA10F8651DC860560038CA26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA10F86D1DC860570038CA26 /* Assets.xcassets in Resources */,
+				CA10F8701DC860570038CA26 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA10F8791DC8606B0038CA26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA10F88D1DC8606B0038CA26 /* ToolbarItemIcon.pdf in Resources */,
+				CADE1E361DD4456F007DA959 /* ImageDownloadController.xib in Resources */,
+				CA38127C1DCB196800D223A7 /* BlockController.xib in Resources */,
+				CA10F8881DC8606B0038CA26 /* SafariExtensionViewController.xib in Resources */,
+				CA10F89E1DC9793C0038CA26 /* OptionController.xib in Resources */,
+				CA10F88B1DC8606B0038CA26 /* script.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA10F8631DC860560038CA26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA10F86B1DC860570038CA26 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA10F8771DC8606B0038CA26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA10F89D1DC9793C0038CA26 /* OptionController.swift in Sources */,
+				CA3ABE4F1DCAB94E001122B3 /* Const.swift in Sources */,
+				CA10F8851DC8606B0038CA26 /* SafariExtensionViewController.swift in Sources */,
+				CADE1E351DD4456F007DA959 /* ImageDownloadController.swift in Sources */,
+				CA38127B1DCB196800D223A7 /* BlockController.swift in Sources */,
+				CA10F8831DC8606B0038CA26 /* SafariExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CA10F88F1DC8606B0038CA26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA10F87A1DC8606B0038CA26 /* DCHelper */;
+			targetProxy = CA10F88E1DC8606B0038CA26 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CA10F86E1DC860570038CA26 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA10F86F1DC860570038CA26 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		CA10F8861DC8606B0038CA26 /* SafariExtensionViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA10F8871DC8606B0038CA26 /* Base */,
+			);
+			name = SafariExtensionViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CA10F8721DC860570038CA26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CA10F8731DC860570038CA26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		CA10F8751DC860570038CA26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LVSExtension/LVSExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 32QE36VTWH;
+				INFOPLIST_FILE = LVSExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.lavalse.LVSExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		CA10F8761DC860570038CA26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = LVSExtension/LVSExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 32QE36VTWH;
+				INFOPLIST_FILE = LVSExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.lavalse.LVSExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		CA10F8921DC8606B0038CA26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = DCHelper/DCHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 32QE36VTWH;
+				INFOPLIST_FILE = DCHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.lavalse.LVSExtension.DCHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		CA10F8931DC8606B0038CA26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = DCHelper/DCHelper.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				DEVELOPMENT_TEAM = 32QE36VTWH;
+				INFOPLIST_FILE = DCHelper/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kr.lavalse.LVSExtension.DCHelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA10F8621DC860560038CA26 /* Build configuration list for PBXProject "LVSExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA10F8721DC860570038CA26 /* Debug */,
+				CA10F8731DC860570038CA26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA10F8741DC860570038CA26 /* Build configuration list for PBXNativeTarget "LVSExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA10F8751DC860570038CA26 /* Debug */,
+				CA10F8761DC860570038CA26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA10F8911DC8606B0038CA26 /* Build configuration list for PBXNativeTarget "DCHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA10F8921DC8606B0038CA26 /* Debug */,
+				CA10F8931DC8606B0038CA26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA10F85F1DC860560038CA26 /* Project object */;
+}

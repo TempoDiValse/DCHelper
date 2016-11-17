@@ -36,16 +36,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                         
                         self.performSelector(onMainThread: #selector(self.openDownloadList), with: ctrlr, waitUntilDone: true)
                         
-                        return
-                    }
-                    
-                    guard messageName != Const.MessageType.RecentVisited else {
-                        let list = userInfo?["list"]!
-                        
-                        self.defaults.set(list, forKey: Const.USER_RECENT_VISITED)
-                        self.defaults.synchronize()
-                        
-                        return
+                        return;
                     }
                     
                     /* common function of its page */

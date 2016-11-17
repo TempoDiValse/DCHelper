@@ -14,7 +14,6 @@
                 <outlet property="btnOpen" destination="yKH-Ln-R7R" id="kKO-0y-ZNW"/>
                 <outlet property="checkAuto" destination="kcR-Y9-5c9" id="IV4-Ud-ks7"/>
                 <outlet property="lBlocker" destination="yUA-j9-24l" id="t2F-fB-qMO"/>
-                <outlet property="selectRecentVisited" destination="TTM-ww-z0J" id="PvP-lx-ml2"/>
                 <outlet property="view" destination="c22-O7-iKe" id="vwT-Xx-Aiz"/>
             </connections>
         </customObject>
@@ -54,7 +53,7 @@
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tgk-UV-L1C">
                     <rect key="frame" x="182" y="169" width="63" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="목록" bezelStyle="rounded" image="FB3F0973-156F-4799-BF66-42D8CE60F232" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uTK-nx-xlt">
+                    <buttonCell key="cell" type="push" title="목록" bezelStyle="rounded" image="54188BFF-0A47-4934-A407-14F91F0E1F6F" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uTK-nx-xlt">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" size="12" name=".AppleSDGothicNeoI-Thin"/>
                     </buttonCell>
@@ -62,6 +61,15 @@
                         <action selector="openBlocker:" target="-2" id="zwC-MR-djG"/>
                     </connections>
                 </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="77r-q9-XNi">
+                    <rect key="frame" x="-2" y="10" width="254" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="All rights reserved." id="y4T-l7-tyy">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uew-ug-yCx" customClass="NSVisualEffectView">
                     <rect key="frame" x="0.0" y="208" width="250" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -77,6 +85,15 @@
                         </textField>
                     </subviews>
                 </customView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eoX-zq-g8Y">
+                    <rect key="frame" x="-2" y="30" width="254" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Copyright © 2016년 LaValse" id="6cl-PH-ran">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tPU-H7-hYm">
                     <rect key="frame" x="11" y="142" width="74" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -98,7 +115,7 @@
                     </connections>
                 </button>
                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v0L-7u-2jI">
-                    <rect key="frame" x="25" y="9" width="195" height="34"/>
+                    <rect key="frame" x="28" y="100" width="195" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="설정을 완료 하신 후 Cmd+R을 해주시기 바랍니다." id="9kD-u0-B0x">
                         <font key="font" size="13" name=".AppleSDGothicNeoI-Thin"/>
@@ -129,7 +146,7 @@
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0cT-Me-xS7">
                     <rect key="frame" x="10" y="58" width="78" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="push" title="파일다운" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="x7N-dC-3ie">
+                    <buttonCell key="cell" type="push" title="짤 다운" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="x7N-dC-3ie">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" size="13" name=".AppleSDGothicNeoI-UltraLight"/>
                     </buttonCell>
@@ -138,27 +155,9 @@
                     </connections>
                 </button>
                 <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="bVW-ZF-gfz">
-                    <rect key="frame" x="0.0" y="20" width="250" height="60"/>
+                    <rect key="frame" x="0.0" y="39" width="250" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                 </box>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xMu-qv-HX3">
-                    <rect key="frame" x="25" y="114" width="60" height="20"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="최근방문" id="LRc-Zb-QZ8">
-                        <font key="font" size="16" name=".AppleSDGothicNeoI-Thin"/>
-                        <color key="textColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TTM-ww-z0J">
-                    <rect key="frame" x="141" y="107" width="99" height="26"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" usesDataSource="YES" numberOfVisibleItems="5" id="AFV-xm-TsG">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </comboBoxCell>
-                </comboBox>
             </subviews>
             <animations>
                 <caTransition key="subviews">
@@ -177,7 +176,7 @@ APoBBgEYARsBIAAAAAAAAAIBAAAAAAAAACgAAAAAAAAAAAAAAAAAAAEiA
         </customView>
     </objects>
     <resources>
-        <image name="FB3F0973-156F-4799-BF66-42D8CE60F232" width="1" height="1">
+        <image name="54188BFF-0A47-4934-A407-14F91F0E1F6F" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw

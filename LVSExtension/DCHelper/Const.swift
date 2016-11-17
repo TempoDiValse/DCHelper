@@ -2,7 +2,7 @@
 //  Const.swift
 //  LVSExtension
 //
-//  Created by LaValse on 2016. 11. 3..
+//  Created by 머니투데이 on 2016. 11. 3..
 //  Copyright © 2016년 LaValse. All rights reserved.
 //
 
@@ -15,7 +15,6 @@ struct Const {
     static let USER_IMG_ADD_AUTO = "u_img_add_auto"
     static let USER_BLOCK_ARRAY = "u_block_array"
     static let USER_DOWNLOAD_PATH = "u_down_path"
-    static let USER_RECENT_VISITED = "u_r_visited"
     
     struct Page {
         static let DOMAIN_PREFIX = "http://gall.dcinside.com/"
@@ -29,7 +28,6 @@ struct Const {
         static let Block = "block"
         static let AddButton = "add_button"
         static let Download = "download_file"
-        static let RecentVisited = "recent_visited"
         
         static let GetImage = "get_image"
         static let SendURLFromWeb = "send_urls"
