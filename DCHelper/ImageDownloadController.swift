@@ -13,6 +13,7 @@ class ImageDownloadController: NSViewController, NSTableViewDelegate, NSTableVie
     @IBOutlet var btnPath: NSButton!
     @IBOutlet var tableView: NSTableView!
     
+    @IBOutlet var checkSelectAll: NSButton!
     @IBOutlet var btnDownload: NSButton!
     @IBOutlet var btnClose: NSButton!
     
@@ -40,6 +41,7 @@ class ImageDownloadController: NSViewController, NSTableViewDelegate, NSTableVie
         }
         
         tableView.reloadData()
+        tableView.selectAll(nil)
     }
     
     func setURLs(url:[[String: String]]){
@@ -48,6 +50,10 @@ class ImageDownloadController: NSViewController, NSTableViewDelegate, NSTableVie
         }
     }
  
+    @IBAction func selectAllRow(_ sender: Any) {
+        tableView.selectAll(nil)
+    }
+    
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
         return (tableColumn?.identifier == "url") ? _url[row]["name"] : ""
     }
@@ -74,13 +80,16 @@ class ImageDownloadController: NSViewController, NSTableViewDelegate, NSTableVie
         
         guard path != nil else {
             configureFolderPath("")
-            return;
+            return
         }
-        
+       
+        let selectedRow = tableView.selectedRowIndexes
         let queueGroup = DispatchGroup()
         
-        for _u in _url {
+        for _i in selectedRow {
             queueGroup.enter()
+            
+            let _u = _url[_i]
             
             let session = URLSession.shared
             session.downloadTask(with: URL(string: _u["url"]!)!, completionHandler: { (url, response, err) in
@@ -101,6 +110,11 @@ class ImageDownloadController: NSViewController, NSTableViewDelegate, NSTableVie
             self.defaults.synchronize()
             
             self.dismissViewController(self)
+            
+            let alert = NSAlert()
+            alert.alertStyle = NSAlertStyle.informational
+            alert.messageText = "다운로드가 완료 되었습니다."
+            alert.runModal()
         })
     }
     

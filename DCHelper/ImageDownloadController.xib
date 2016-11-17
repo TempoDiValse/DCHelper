@@ -11,6 +11,7 @@
                 <outlet property="btnClose" destination="aQI-W1-qX9" id="0qn-JC-hmO"/>
                 <outlet property="btnDownload" destination="ySn-PX-IQp" id="4u6-ZU-mHd"/>
                 <outlet property="btnPath" destination="ghE-IF-AGk" id="fI5-LB-moU"/>
+                <outlet property="checkSelectAll" destination="01L-9Q-TEY" id="GRz-Cd-H1A"/>
                 <outlet property="editPath" destination="anT-Bc-SsK" id="kF7-0c-fnb"/>
                 <outlet property="tableView" destination="9yk-5c-sNH" id="0Rv-s0-CXK"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -65,7 +66,7 @@
                         <nil key="backgroundColor"/>
                     </clipView>
                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="T3p-As-3xY">
-                        <rect key="frame" x="2" y="166" width="443" height="16"/>
+                        <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="kgC-Cr-R2d">
@@ -74,7 +75,7 @@
                     </scroller>
                 </scrollView>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ySn-PX-IQp">
-                    <rect key="frame" x="385" y="13" width="85" height="32"/>
+                    <rect key="frame" x="385" y="10" width="85" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="push" title="다운로드" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tZr-Gn-JRP">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -85,7 +86,7 @@
                     </connections>
                 </button>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQI-W1-qX9">
-                    <rect key="frame" x="322" y="13" width="63" height="32"/>
+                    <rect key="frame" x="322" y="10" width="63" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="push" title="닫기" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LRW-ef-pAv">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -104,6 +105,26 @@
                     </buttonCell>
                     <connections>
                         <action selector="configureFolderPath:" target="-2" id="gDW-Ns-Kws"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5s7-tL-yUz">
+                    <rect key="frame" x="102" y="21" width="208" height="14"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="&quot;Cmd + 우클릭&quot;으로 다운 선택이 가능합니다." id="LV3-2b-n3J">
+                        <font key="font" metaFont="system" size="11"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="01L-9Q-TEY">
+                    <rect key="frame" x="11" y="10" width="81" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="전체선택" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" inset="2" id="Zwg-uK-aqh">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="selectAllRow:" target="-2" id="0J0-9Y-1qB"/>
                     </connections>
                 </button>
             </subviews>

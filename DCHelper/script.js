@@ -83,11 +83,6 @@ function fromExtension(e){
     received = e.message;
     var type = received.type;
     
-    console.log("/*------------*/");
-    console.log("Page: "+currentPage);
-    console.log("Type: "+type);
-    console.log("/*------------*/");
-    
     if(type == MessageType.AutoImage){
         var args = received.args;
         
@@ -182,7 +177,7 @@ function removeBlockedContent(blockers){
         });
         
         var injectScript = document.createElement("script");
-        injectScript.text = "$(document).ready(function(){ setTimeout(function(){ getCommentList(0); },1000); Pager = { pageIndexChanged: function(selectedPage){ getCommentList(++_currentPage); } } }); function getCommentList(page){ var _comment_num=_totalItemCount, gall_id=$.getURLParam('id'), vr_no=$.getURLParam('vr'), gall_no=$.getURLParam('no'), csrf_token=get_cookie('ci_c'); $.ajax({url: '"+((gType == "minor")?"/mgallery":"")+"/comment/view', method:'POST', data: { ci_t:csrf_token, id: gall_id, no:gall_no, comment_page:page, vr: vr_no}, success: function(data){ $('#comment_list').html(data); clipinit(); var blocklist='"+blockers+"'.split('|'); $('#comment_list').find('.user_layer').each(function(){ if(blocklist.includes($(this).attr('user_name'))){ $(this).parent().hide(); } }) } }) }";
+        injectScript.text = "$(document).ready(function(){ setTimeout(function(){ getCommentList(0); },1000); Pager = { pageIndexChanged: function(selectedPage){ getCommentList(++_currentPage); } } }); function getCommentList(page){ var _comment_num=_totalItemCount, gall_id=$.getURLParam('id'), vr_no=$.getURLParam('vr'), gall_no=$.getURLParam('no'), csrf_token=get_cookie('ci_c'); $.ajax({url: '"+((gType == "minor")?"/mgallery":"")+"/comment/view', method:'POST', data: { ci_t:csrf_token, id: gall_id, no:gall_no, comment_page:page, vr: vr_no}, success: function(data){ $('#comment_list').html(data); clipinit(); var blocklist='"+blockers+"'.split('|'); $('#comment_list').find('.user_layer').each(function(){ if(blocklist.includes($(this).attr('user_name'))){ var parent = $(this).parent(); parent.hide(); parent.prev().hide(); parent.next().hide(); } }) } }) }";
         document.body.appendChild(injectScript);
     }
     

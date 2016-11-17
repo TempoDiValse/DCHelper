@@ -15,13 +15,13 @@
 		CA10F8851DC8606B0038CA26 /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA10F8841DC8606B0038CA26 /* SafariExtensionViewController.swift */; };
 		CA10F8881DC8606B0038CA26 /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA10F8861DC8606B0038CA26 /* SafariExtensionViewController.xib */; };
 		CA10F88B1DC8606B0038CA26 /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = CA10F88A1DC8606B0038CA26 /* script.js */; };
-		CA10F88D1DC8606B0038CA26 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CA10F88C1DC8606B0038CA26 /* ToolbarItemIcon.pdf */; };
 		CA10F8901DC8606B0038CA26 /* DCHelper.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CA10F87B1DC8606B0038CA26 /* DCHelper.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CA10F89D1DC9793C0038CA26 /* OptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA10F89B1DC9793C0038CA26 /* OptionController.swift */; };
 		CA10F89E1DC9793C0038CA26 /* OptionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA10F89C1DC9793C0038CA26 /* OptionController.xib */; };
 		CA38127B1DCB196800D223A7 /* BlockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3812791DCB196800D223A7 /* BlockController.swift */; };
 		CA38127C1DCB196800D223A7 /* BlockController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA38127A1DCB196800D223A7 /* BlockController.xib */; };
 		CA3ABE4F1DCAB94E001122B3 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3ABE4E1DCAB94E001122B3 /* Const.swift */; };
+		CAAAB6A41DDD7D4200BDD276 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAAB6A31DDD7D4200BDD276 /* logo.png */; };
 		CADE1E351DD4456F007DA959 /* ImageDownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADE1E331DD4456F007DA959 /* ImageDownloadController.swift */; };
 		CADE1E361DD4456F007DA959 /* ImageDownloadController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADE1E341DD4456F007DA959 /* ImageDownloadController.xib */; };
 /* End PBXBuildFile section */
@@ -64,13 +64,13 @@
 		CA10F8871DC8606B0038CA26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
 		CA10F8891DC8606B0038CA26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA10F88A1DC8606B0038CA26 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
-		CA10F88C1DC8606B0038CA26 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
 		CA10F89B1DC9793C0038CA26 /* OptionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionController.swift; sourceTree = "<group>"; };
 		CA10F89C1DC9793C0038CA26 /* OptionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionController.xib; sourceTree = "<group>"; };
 		CA3812791DCB196800D223A7 /* BlockController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockController.swift; sourceTree = "<group>"; };
 		CA38127A1DCB196800D223A7 /* BlockController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlockController.xib; sourceTree = "<group>"; };
 		CA3ABE4E1DCAB94E001122B3 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		CA9CDEA61DDC20E3002310CE /* LVSExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LVSExtension.entitlements; sourceTree = "<group>"; };
+		CAAAB6A31DDD7D4200BDD276 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		CADE1E331DD4456F007DA959 /* ImageDownloadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadController.swift; sourceTree = "<group>"; };
 		CADE1E341DD4456F007DA959 /* ImageDownloadController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageDownloadController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,7 +141,7 @@
 				CAE16DF51DD058830050B101 /* Controllers */,
 				CA10F8891DC8606B0038CA26 /* Info.plist */,
 				CA10F88A1DC8606B0038CA26 /* script.js */,
-				CA10F88C1DC8606B0038CA26 /* ToolbarItemIcon.pdf */,
+				CAAAB6A31DDD7D4200BDD276 /* logo.png */,
 				CA10F8801DC8606B0038CA26 /* Supporting Files */,
 			);
 			path = DCHelper;
@@ -269,10 +269,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA10F88D1DC8606B0038CA26 /* ToolbarItemIcon.pdf in Resources */,
 				CADE1E361DD4456F007DA959 /* ImageDownloadController.xib in Resources */,
 				CA38127C1DCB196800D223A7 /* BlockController.xib in Resources */,
 				CA10F8881DC8606B0038CA26 /* SafariExtensionViewController.xib in Resources */,
+				CAAAB6A41DDD7D4200BDD276 /* logo.png in Resources */,
 				CA10F89E1DC9793C0038CA26 /* OptionController.xib in Resources */,
 				CA10F88B1DC8606B0038CA26 /* script.js in Resources */,
 			);
