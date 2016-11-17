@@ -11,6 +11,7 @@ DCHelper for Safari (App Extension)
 1. 닉네임 차단
 2. 자동 이미지 등록
 3. 이미지 다운
+4. 최근 방문 갤러리 링크
 <br>
 
 권장사양
