@@ -39,6 +39,15 @@ Mac OS X 10.12(Sierra) 부터 사용가능
 ======
 사파리 환경설정에서 DCHelper 체크 해제 한 후 사파리를 종료하고 LVSExtension.app을 휴지통에 넣고 완전히 삭제한다.
 <br><br>
+
+ScreenShot
+======
+![ScreenShot1](/ScreenShot/S1.png)
+![ScreenShot2](/ScreenShot/S2.png)
+![ScreenShot3](/ScreenShot/S3.png)
+![ScreenShot4](/ScreenShot/S4.png)
+![ScreenShot5](/ScreenShot/S5.png)
+
 Author: LaValse<br>
 2016.11.16<br>
 <br>
