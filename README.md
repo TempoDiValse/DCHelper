@@ -42,10 +42,15 @@ Mac OS X 10.12(Sierra) 부터 사용가능
 
 ScreenShot
 ======
+1.상단 주소창 왼쪽에 아이콘 생성
 ![ScreenShot1](/ScreenShot/S1.png)
+2.DCHelper 패널
 ![ScreenShot2](/ScreenShot/S2.png)
+3.제목 키워드 차단 입력창 
 ![ScreenShot3](/ScreenShot/S3.png)
+4.자동 이미지 설정창
 ![ScreenShot4](/ScreenShot/S4.png)
+5.게시글 첨부파일 리스트
 ![ScreenShot5](/ScreenShot/S5.png)
 
 Author: LaValse<br>
