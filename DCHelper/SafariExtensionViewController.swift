@@ -14,12 +14,12 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSComboBox
     let defaults = UserDefaults.standard
     
     @IBOutlet var btnList: NSButton!
+    @IBOutlet var btnBTitle: NSButton!
     @IBOutlet var btnOpen: NSButton!
     @IBOutlet var checkAuto: NSButton!
     @IBOutlet var btnDownload: NSButton!
     @IBOutlet var selectRecentVisited: NSComboBox!
     
-    @IBOutlet var lBlocker: NSTextField!
     @IBOutlet var bgLabel1: NSVisualEffectView!
     
     var vList = [[String:String]]()
@@ -43,9 +43,6 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSComboBox
     override func viewDidAppear() {
         super.viewDidAppear()
         
-        let count = defaults.array(forKey: Const.USER_BLOCK_ARRAY)?.count ?? 0
-        lBlocker.stringValue = String(count)
-        
         let autoState = defaults.bool(forKey: Const.USER_IMG_ADD_AUTO) ? 1 : 0
         checkAuto.state = autoState
         
@@ -54,8 +51,12 @@ class SafariExtensionViewController: SFSafariExtensionViewController, NSComboBox
         selectRecentVisited.selectItem(at: 0)
     }
     
+    @IBAction func openBlockTitle(_ sender: Any) {
+        self.presentViewController(TitleBlockController(), asPopoverRelativeTo: NSRect(), of: self.view, preferredEdge: NSRectEdge.maxX, behavior: .transient)
+    }
+    
     @IBAction func openBlocker(_ sender: Any) {
-        self.presentViewController(BlockController(), asPopoverRelativeTo: NSRect(x: 0, y: 100, width: 0, height: 0), of: self.view, preferredEdge: NSRectEdge.maxX, behavior: .transient)
+        self.presentViewController(BlockerController(), asPopoverRelativeTo: NSRect(x: 0, y: 100, width: 0, height: 0), of: self.view, preferredEdge: NSRectEdge.maxX, behavior: .transient)
     }
     
     @IBAction func openFileDialog(_ sender: Any) {

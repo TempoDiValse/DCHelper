@@ -18,9 +18,11 @@
 		CA10F8901DC8606B0038CA26 /* DCHelper.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CA10F87B1DC8606B0038CA26 /* DCHelper.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CA10F89D1DC9793C0038CA26 /* OptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA10F89B1DC9793C0038CA26 /* OptionController.swift */; };
 		CA10F89E1DC9793C0038CA26 /* OptionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA10F89C1DC9793C0038CA26 /* OptionController.xib */; };
-		CA38127B1DCB196800D223A7 /* BlockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3812791DCB196800D223A7 /* BlockController.swift */; };
-		CA38127C1DCB196800D223A7 /* BlockController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA38127A1DCB196800D223A7 /* BlockController.xib */; };
+		CA38127B1DCB196800D223A7 /* BlockerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3812791DCB196800D223A7 /* BlockerController.swift */; };
+		CA38127C1DCB196800D223A7 /* BlockerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA38127A1DCB196800D223A7 /* BlockerController.xib */; };
 		CA3ABE4F1DCAB94E001122B3 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA3ABE4E1DCAB94E001122B3 /* Const.swift */; };
+		CA9E0B031DF14CCF00BC7708 /* TitleBlockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E0B011DF14CCF00BC7708 /* TitleBlockController.swift */; };
+		CA9E0B041DF14CCF00BC7708 /* TitleBlockController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA9E0B021DF14CCF00BC7708 /* TitleBlockController.xib */; };
 		CAAAB6A41DDD7D4200BDD276 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = CAAAB6A31DDD7D4200BDD276 /* logo.png */; };
 		CADE1E351DD4456F007DA959 /* ImageDownloadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADE1E331DD4456F007DA959 /* ImageDownloadController.swift */; };
 		CADE1E361DD4456F007DA959 /* ImageDownloadController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADE1E341DD4456F007DA959 /* ImageDownloadController.xib */; };
@@ -66,11 +68,13 @@
 		CA10F88A1DC8606B0038CA26 /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
 		CA10F89B1DC9793C0038CA26 /* OptionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionController.swift; sourceTree = "<group>"; };
 		CA10F89C1DC9793C0038CA26 /* OptionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionController.xib; sourceTree = "<group>"; };
-		CA3812791DCB196800D223A7 /* BlockController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockController.swift; sourceTree = "<group>"; };
-		CA38127A1DCB196800D223A7 /* BlockController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlockController.xib; sourceTree = "<group>"; };
+		CA3812791DCB196800D223A7 /* BlockerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockerController.swift; sourceTree = "<group>"; };
+		CA38127A1DCB196800D223A7 /* BlockerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlockerController.xib; sourceTree = "<group>"; };
 		CA3ABE4E1DCAB94E001122B3 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
-		CA9CDEA61DDC20E3002310CE /* LVSExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LVSExtension.entitlements; sourceTree = "<group>"; };
+		CA9E0B011DF14CCF00BC7708 /* TitleBlockController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleBlockController.swift; sourceTree = "<group>"; };
+		CA9E0B021DF14CCF00BC7708 /* TitleBlockController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TitleBlockController.xib; sourceTree = "<group>"; };
 		CAAAB6A31DDD7D4200BDD276 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		CAAAB6A51DDE8B0300BDD276 /* LVSExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LVSExtension.entitlements; sourceTree = "<group>"; };
 		CADE1E331DD4456F007DA959 /* ImageDownloadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloadController.swift; sourceTree = "<group>"; };
 		CADE1E341DD4456F007DA959 /* ImageDownloadController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageDownloadController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,7 +120,7 @@
 		CA10F8691DC860570038CA26 /* LVSExtension */ = {
 			isa = PBXGroup;
 			children = (
-				CA9CDEA61DDC20E3002310CE /* LVSExtension.entitlements */,
+				CAAAB6A51DDE8B0300BDD276 /* LVSExtension.entitlements */,
 				CA10F86A1DC860570038CA26 /* AppDelegate.swift */,
 				CA10F86C1DC860570038CA26 /* Assets.xcassets */,
 				CA10F86E1DC860570038CA26 /* MainMenu.xib */,
@@ -162,10 +166,12 @@
 				CA10F8861DC8606B0038CA26 /* SafariExtensionViewController.xib */,
 				CA10F89B1DC9793C0038CA26 /* OptionController.swift */,
 				CA10F89C1DC9793C0038CA26 /* OptionController.xib */,
-				CA3812791DCB196800D223A7 /* BlockController.swift */,
-				CA38127A1DCB196800D223A7 /* BlockController.xib */,
+				CA3812791DCB196800D223A7 /* BlockerController.swift */,
+				CA38127A1DCB196800D223A7 /* BlockerController.xib */,
 				CADE1E331DD4456F007DA959 /* ImageDownloadController.swift */,
 				CADE1E341DD4456F007DA959 /* ImageDownloadController.xib */,
+				CA9E0B011DF14CCF00BC7708 /* TitleBlockController.swift */,
+				CA9E0B021DF14CCF00BC7708 /* TitleBlockController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -225,7 +231,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -270,10 +276,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CADE1E361DD4456F007DA959 /* ImageDownloadController.xib in Resources */,
-				CA38127C1DCB196800D223A7 /* BlockController.xib in Resources */,
+				CA38127C1DCB196800D223A7 /* BlockerController.xib in Resources */,
 				CA10F8881DC8606B0038CA26 /* SafariExtensionViewController.xib in Resources */,
 				CAAAB6A41DDD7D4200BDD276 /* logo.png in Resources */,
 				CA10F89E1DC9793C0038CA26 /* OptionController.xib in Resources */,
+				CA9E0B041DF14CCF00BC7708 /* TitleBlockController.xib in Resources */,
 				CA10F88B1DC8606B0038CA26 /* script.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,7 +304,8 @@
 				CA3ABE4F1DCAB94E001122B3 /* Const.swift in Sources */,
 				CA10F8851DC8606B0038CA26 /* SafariExtensionViewController.swift in Sources */,
 				CADE1E351DD4456F007DA959 /* ImageDownloadController.swift in Sources */,
-				CA38127B1DCB196800D223A7 /* BlockController.swift in Sources */,
+				CA38127B1DCB196800D223A7 /* BlockerController.swift in Sources */,
+				CA9E0B031DF14CCF00BC7708 /* TitleBlockController.swift in Sources */,
 				CA10F8831DC8606B0038CA26 /* SafariExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

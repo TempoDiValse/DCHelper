@@ -49,12 +49,22 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                     }
                     
                     /* common function of its page */
-                    let blocks = self.defaults.array(forKey: Const.USER_BLOCK_ARRAY) as! [String]?
-                    if blocks?.count != 0 {
+                    let bPerson = self.defaults.array(forKey: Const.USER_BLOCK_ARRAY) as! [String]?
+                    let bTitle = self.defaults.array(forKey: Const.USER_TITLE_BLOCK_ARRAY) as! [String]?
+                    
+                    if bPerson?.count != 0 && bTitle?.count != 0 {
+                        
+                        let joinPerson = bPerson?.joined(separator:"|") ?? ""
+                        let regTitle = self.arrayToReg(_arr: bTitle)
+                        
+                        print(regTitle)
+                        
                         page.dispatchMessageToScript(withName: self.BRIDGE_FUNC, userInfo: [
                             "type": Const.MessageType.Block,
-                            "args": blocks!.joined(separator: "|")
+                            "person": joinPerson,
+                            "title": regTitle
                         ])
+                            
                     }
                 }else if(url?.contains(Const.Page.Write))!{
                     guard messageName != Const.MessageType.GetImage else{
@@ -71,6 +81,27 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                 }
             }
         })
+    }
+    
+    private func arrayToReg(_arr:[String]?) -> String {
+        guard _arr != nil else{
+            return ""
+        }
+        
+        var buf = "("
+        
+        for i in 0 ... _arr!.count-1{
+            let _o = _arr![i]
+            
+            buf += "\(_o)"
+            if i < _arr!.count-1 {
+                buf += "|"
+            }
+        }
+        
+        buf += ")"
+        
+        return buf;
     }
     
     func openDownloadList(sender: Any){

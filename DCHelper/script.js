@@ -98,9 +98,10 @@ function fromExtension(e){
        
         request(URL_UPLOAD_IMG+_gID, fObj, autoImageProc);
     }else if(type == MessageType.Block){
-        var blockers = received.args;
+        var blockers = received.person;
+        var blockTitles = received.title;
         
-        removeBlockedContent(blockers);
+        removeBlockedContent(blockers, blockTitles);
     }else if(type == MessageType.AddButton){
         var liObj = document.createElement("li");
         liObj.setAttribute("class", "tx-list");
@@ -167,8 +168,8 @@ function fromExtension(e){
     }
 }
 
-function removeBlockedContent(blockers){
-    var blocked = blockers.split('|');
+function removeBlockedContent(bPerson, bTitle){
+    var blocked = bPerson.split('|');
     
     if(currentPage == Page.View){
         
@@ -177,15 +178,26 @@ function removeBlockedContent(blockers){
         });
         
         var injectScript = document.createElement("script");
-        injectScript.text = "$(document).ready(function(){ setTimeout(function(){ getCommentList(0); },1000); Pager = { pageIndexChanged: function(selectedPage){ getCommentList(++_currentPage); } } }); function getCommentList(page){ var _comment_num=_totalItemCount, gall_id=$.getURLParam('id'), vr_no=$.getURLParam('vr'), gall_no=$.getURLParam('no'), csrf_token=get_cookie('ci_c'); $.ajax({url: '"+((gType == "minor")?"/mgallery":"")+"/comment/view', method:'POST', data: { ci_t:csrf_token, id: gall_id, no:gall_no, comment_page:page, vr: vr_no}, success: function(data){ $('#comment_list').html(data); clipinit(); var blocklist='"+blockers+"'.split('|'); $('#comment_list').find('.user_layer').each(function(){ if(blocklist.includes($(this).attr('user_name'))){ var parent = $(this).parent(); parent.hide(); parent.prev().hide(); parent.next().hide(); } }) } }) }";
+        injectScript.text = "$(document).ready(function(){ setTimeout(function(){ getCommentList(0); },1000); Pager = { pageIndexChanged: function(selectedPage){ getCommentList(++_currentPage); } } }); function getCommentList(page){ var _comment_num=_totalItemCount, gall_id=$.getURLParam('id'), vr_no=$.getURLParam('vr'), gall_no=$.getURLParam('no'), csrf_token=get_cookie('ci_c'); $.ajax({url: '"+((gType == "minor")?"/mgallery":"")+"/comment/view', method:'POST', data: { ci_t:csrf_token, id: gall_id, no:gall_no, comment_page:page, vr: vr_no}, success: function(data){ $('#comment_list').html(data); clipinit(); var blocklist='"+bPerson+"'.split('|'); $('#comment_list').find('.user_layer').each(function(){ if(blocklist.includes($(this).attr('user_name'))){ var parent = $(this).parent(); parent.hide(); parent.prev().hide(); parent.next().hide(); } }) } }) }";
         document.body.appendChild(injectScript);
     }
     
-    [].forEach.call(document.getElementsByClassName("user_layer"), function(el){
-        var nickName = el.getAttribute("user_name");
-        
-        if(blocked.includes(nickName)){
-            el.parentElement.style.display = "none";
+    [].forEach.call(document.getElementsByClassName("tb"), function(el){
+        var _nickName = el.querySelector(".user_layer").getAttribute("user_name");
+        var _title = el.querySelector(".t_subject a").text;
+                    
+        if(blocked.includes(_nickName)){
+            el.style.display = "none";
+        }
+                    
+        if(bTitle != ""){
+            var reg = new RegExp(bTitle, 'g');
+            console.log(_title);
+                    
+            if(reg.test(_title)){
+                console.log("ㄴ Removed");
+                el.style.display = "none";
+            }
         }
     });
 }
