@@ -12,6 +12,7 @@ DCHelper for Safari (App Extension)
 2. 자동 이미지 등록
 3. 게시글 이미지 다운
 4. 최근 방문 갤러리 링크
+5. 업데이트 된 게시글 알림
 <br><br>
 
 권장사양
