@@ -63,7 +63,5 @@
 	</dict>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2016년 LaValse. All rights reserved.</string>
-	<key>NSHumanReadableDescription</key>
-	<string>Beta Version. 차단 목록, 자짤 자동 추가</string>
 </dict>
 </plist>

@@ -4,6 +4,10 @@ const BOARD_PREFIX = "board/";
 
 const URL_UPLOAD_IMG = "//upimg.dcinside.com/upimg_file.php?id=";
 
+const L_LAST_CONTENT_ID = "lastContentID";
+
+const N_TITLE = "DCHelper";
+
 var Page = {
     List : "lists",
     Write : "write",
@@ -27,11 +31,20 @@ var gType = "main";
 var _href = document.location.href;
 safari.self.addEventListener("message", fromExtension, true);
 
+var isNotificationGranted = false;
+
+Notification.requestPermission(function(){
+    isNotificationGranted = true;
+});
+
+var itvId;
+
 document.addEventListener("DOMContentLoaded", function(event) {
     var url = document.location.href;
     
     if(url.startsWith(PREFIX)) {
-                          
+        clearInterval(itvId);
+
         var dcurl = url.substring(PREFIX.length);
 
         if(dcurl.startsWith(MINOR_PREFIX)){
@@ -44,11 +57,60 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if(dcurl.startsWith(Page.List)){
             currentPage = Page.List;
             
+            if(Notification.permission == 'granted'){
+                var _gID = document.getElementById("id").value;
+                var listNode = document.getElementsByClassName("tb");
+                
+                for(var i=0; i<listNode.length; i++){
+                    var _el = listNode[i];
+                              
+                    var noticeId = parseInt(_el.childNodes[1].innerHTML);
+                    
+                    if(!Number.isNaN(noticeId)){
+                        if(localStorage.lastContentID){
+                            var lastObj = JSON.parse(localStorage.lastContentID);
+                            var lastContentID = 0;
+                            var doExist = false;
+                              
+                            for(var j=0; j<lastObj.length; j++){
+                                var _o = lastObj[j];
+                                if(_o.id == _gID){
+                                    doExist = true;
+                              
+                                    var diff = noticeId - parseInt(_o.cid);
+                                    if(diff > 0){
+                                        notification("마지막 리스트 오픈 시점으로 부터 새로운 컨텐츠 "+diff+" 건");
+                                        _o.cid = noticeId;
+                              
+                                        localStorage.setItem("lastContentID", JSON.stringify(lastObj));
+                                    }
+                              
+                                    break;
+                                }
+                            }
+                              
+                            if(!doExist){
+                                lastObj.push({"id":_gID, "cid": noticeId});
+                                localStorage.setItem("lastContentID", JSON.stringify(lastObj));
+                            }
+                        }else{
+                            localStorage.setItem("lastContentID", JSON.stringify([{"id": _gID, "cid": noticeId}]));
+                        }
+                        
+                        break;
+                    }
+                }
+            }
+            
             safari.extension.dispatchMessage(MessageType.RecentVisited, getRecentVisitedList());
         }else if(dcurl.startsWith(Page.Write)){
             currentPage = Page.Write;
+            
+            itvId = setInterval(function (){ parseNewContent() }, 5000);
         }else if(dcurl.startsWith(Page.View)){
             currentPage = Page.View;
+                          
+            itvId = setInterval(function (){ parseNewContent() }, 5000);
         }else{
             currentPage = "";
         }	
@@ -96,7 +158,7 @@ function fromExtension(e){
         fObj.append("r_key",_rKey);
         fObj.append("files[]", b64toBlob(data), fileName);
        
-        request(URL_UPLOAD_IMG+_gID, fObj, autoImageProc);
+        imageRequest(URL_UPLOAD_IMG+_gID, fObj, autoImageProc);
     }else if(type == MessageType.Block){
         var blockers = received.person;
         var blockTitles = received.title;
@@ -178,7 +240,46 @@ function removeBlockedContent(bPerson, bTitle){
         });
         
         var injectScript = document.createElement("script");
-        injectScript.text = "$(document).ready(function(){ setTimeout(function(){ getCommentList(0); },1000); Pager = { pageIndexChanged: function(selectedPage){ getCommentList(++_currentPage); } } }); function getCommentList(page){ var _comment_num=_totalItemCount, gall_id=$.getURLParam('id'), vr_no=$.getURLParam('vr'), gall_no=$.getURLParam('no'), csrf_token=get_cookie('ci_c'); $.ajax({url: '"+((gType == "minor")?"/mgallery":"")+"/comment/view', method:'POST', data: { ci_t:csrf_token, id: gall_id, no:gall_no, comment_page:page, vr: vr_no}, success: function(data){ $('#comment_list').html(data); clipinit(); var blocklist='"+bPerson+"'.split('|'); $('#comment_list').find('.user_layer').each(function(){ if(blocklist.includes($(this).attr('user_name'))){ var parent = $(this).parent(); parent.hide(); parent.prev().hide(); parent.next().hide(); } }) } }) }";
+        injectScript.text = "$(document).ready(function(){ "+
+                                "setTimeout(function(){ "+
+                                    "getCommentList(0); "+
+                                "},1000); "+
+                                "Pager = { "+
+                                    "pageIndexChanged: function(selectedPage){ "+
+                                                         "getCommentList(++_currentPage); "+
+                                                      "} "+
+                                    "} "+
+                            "}); "+
+                            "function getCommentList(page){ "+
+                                "var _comment_num = _totalItemCount,"+
+                                    " gall_id = $.getURLParam('id'),"+
+                                    " vr_no = $.getURLParam('vr'),"+
+                                    " gall_no = $.getURLParam('no'),"+
+                                    " csrf_token = get_cookie('ci_c');"+
+                                "$.ajax({"+
+                                    "url: '"+((gType == "minor")?"/mgallery":"")+"/comment/view', "+
+                                    "method:'POST', "+
+                                    "data: { "+
+                                        "ci_t:csrf_token, "+
+                                        "id: gall_id, "+
+                                        "no: gall_no, "+
+                                        "comment_page: page, "+
+                                        "vr: vr_no"+
+                                    "}, success: function(data){"+
+                                        " $('#comment_list').html(data);"+
+                                        " clipinit();"+
+                                        " var blocklist='"+bPerson+"'.split('|'); "+
+                                        "$('#comment_list').find('.user_layer').each(function(){"+
+                                            " if(blocklist.includes($(this).attr('user_name'))){"+
+                                                " var parent = $(this).parent(); "+
+                                                "parent.hide(); "+
+                                                "parent.prev().hide(); "+
+                                                "parent.next().hide(); "+
+                                            "} "+
+                                        "}) "+
+                                    "} "+
+                                "}) "+
+                            "}";
         document.body.appendChild(injectScript);
     }
     
@@ -192,10 +293,8 @@ function removeBlockedContent(bPerson, bTitle){
                     
         if(bTitle != ""){
             var reg = new RegExp(bTitle, 'g');
-            console.log(_title);
                     
             if(reg.test(_title)){
-                console.log("ㄴ Removed");
                 el.style.display = "none";
             }
         }
@@ -224,13 +323,12 @@ var autoImageProc = function(data){
     iframeBody.innerHTML = "";
     
     document.getElementById("upload_status").value = 'Y';
+    document.getElementById("progress-bar").style.width = "0px";
     
     alert("사진이 첨부되었습니다.");
-    
-    document.getElementById("progress-bar").style.width = "0px";
 }
 
-function request(url, dataObj, callback){
+function imageRequest(url, dataObj, callback){
     var xhr = new XMLHttpRequest();
     
     xhr.upload.onprogress = function(e){
@@ -252,6 +350,67 @@ function request(url, dataObj, callback){
     
     xhr.open("POST", url);
     xhr.send(dataObj);
+}
+
+var idStack = 0;
+function parseNewContent(lastID){
+    if(Notification.permission != 'granted'){ return; }
+    
+    var _gID = document.getElementById("id").value;
+    var xhr = new XMLHttpRequest();
+    
+    if(idStack == 0){
+        var lastObjs = JSON.parse(localStorage.lastContentID);
+        for(var i=0; i<lastObjs.length; i++){
+            var _o = lastObjs[i];
+            if(_o.id == _gID){
+                idStack = parseInt(_o.cid);
+                break;
+            }
+        }
+    }
+    
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState == XMLHttpRequest.DONE && xhr.status === 200){
+            var html = document.createElement("html");
+            html.innerHTML = xhr.responseText;
+            
+            var list = html.getElementsByClassName("tb");
+            
+            for(var i=0; i<list.length; i++){
+                var _el = list[i];
+                
+                var noticeId = parseInt(_el.childNodes[1].innerHTML);
+                var _title = _el.childNodes[3].childNodes[0].text;
+                
+                if(!Number.isNaN(noticeId)){
+                    var diff = noticeId - idStack;
+                    
+                    if(diff > 0){
+                        notification("새로운 글이 올라왔습니다. \n제목: "+_title);
+                        idStack = noticeId;
+                    }
+                    
+                    break;
+                }
+            }
+        }
+    }
+    
+    xhr.open("GET", "http://gall.dcinside.com/board/lists/?id="+_gID);
+    xhr.send("");
+}
+
+
+function notification(content){
+    var notification = new Notification(N_TITLE, {
+                            "body": content,
+                            "tag": N_TITLE
+                        });
+    
+    notification.onclick = function(){
+        this.close();
+    }
 }
 
 function b64toBlob(b64Data, contentType, sliceSize) {

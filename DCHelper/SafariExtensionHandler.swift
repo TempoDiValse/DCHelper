@@ -57,8 +57,6 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                         let joinPerson = bPerson?.joined(separator:"|") ?? ""
                         let regTitle = self.arrayToReg(_arr: bTitle)
                         
-                        print(regTitle)
-                        
                         page.dispatchMessageToScript(withName: self.BRIDGE_FUNC, userInfo: [
                             "type": Const.MessageType.Block,
                             "person": joinPerson,
