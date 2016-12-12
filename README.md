@@ -53,7 +53,9 @@ ScreenShot
 ![ScreenShot4](/ScreenShot/S4.png)<br><br>
 5.게시글 첨부파일 리스트<br>
 ![ScreenShot5](/ScreenShot/S5.png)<br><br>
-
+6.게시글 알림<br>
+![ScreenShot6](/ScreenShot/S6.png)<br><br>
+![ScreenShot7](/ScreenShot/S7.png)<br><br>
 Author: LaValse<br>
 2016.11.16<br>
 <br>
